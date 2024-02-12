@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
 // Routing
 import { AppRoutingModule } from './app-routing.module';
 
@@ -23,13 +22,21 @@ import { MatListModule } from '@angular/material/list';
 import { HttpClientModule } from '@angular/common/http';
 
 // Components
+import { TextInputComponent } from './text-input/text-input.component';
+import { MainContainerComponent } from './main-container/main-container.component';
+import { AudioInputComponent } from './audio-input/audio-input.component';
+import { TextOutputComponent } from './text-output/text-output.component';
 
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TextInputComponent,
+    MainContainerComponent,
+    AudioInputComponent,
+    TextOutputComponent
   ],
   imports: [
     BrowserModule,
