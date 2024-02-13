@@ -14,7 +14,7 @@ export class MainContainerComponent {
 
   processText(text: string) {
       this.backendService.sendText(text).subscribe({
-        next: (response) => console.log(`Processed text: ${response.text}`), // TODO: update processedText
+        next: (response) => console.log(`Processed text: ${response}`), 
         error: (e) => console.error(`Error sending text: ${e}`),
         complete: () => console.info('complete')});
   }

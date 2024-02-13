@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class BackendService {
   private PORT = 3000;
   private apiUrl = `http://localhost:${this.PORT}`; // Replace with your actual API URL
-  private PATH = 'api/ai/process-text';
+  private PATH = 'api/ai/process-code';
 
   constructor(private http: HttpClient) { }
 
