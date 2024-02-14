@@ -9,6 +9,7 @@ import { BackendService } from '../backend.service';
 })
 export class MainContainerComponent {
   processedText: string = '';
+  transcribedAudio: string = '';
 
 
   constructor (private backendService: BackendService) { }
@@ -25,8 +26,17 @@ export class MainContainerComponent {
     this.backendService.sendAudio(audioBlob).subscribe({
       next: (response) => console.log(`${response.message}: ${response.fileInfo / 1000} KB written to the server`),
       error: (e) => console.error(`Error sending audio: ${e}`),
-      complete: () => console.info('complete audio process backend')});
+      complete: () => console.info('audio uploaded successfully')});
   }
 
+  transcribeAudio() {
+    this.backendService.transcribeAudio().subscribe({
+      // next: (response) => console.log(`Transcribed audio: ${response}`),
+      next: (response) => this.transcribedAudio = response,
+      error: (e) => console.error(`Error transcribing audio: ${e}`),
+      complete: () => console.info('audio transcribed successfully')
+      }
+    )
+  };
 
 }

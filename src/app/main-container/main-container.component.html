@@ -1,5 +1,9 @@
 <app-text-input (textSubmit)="processText($event)"></app-text-input>
 <br>
-<app-audio-input (audioRecorded)="processAudio($event)"></app-audio-input>
+<app-audio-input (audioRecorded)="processAudio($event)" ></app-audio-input>
+<br>
+<app-transcribe-audio (transcriptionComplete)="transcribeAudio()"></app-transcribe-audio>
+<br>
+<app-transcribe-audio-output [text]="transcribedAudio"></app-transcribe-audio-output>
 
 <!-- <app-text-output [processedText]="processedText"></app-text-output> -->
