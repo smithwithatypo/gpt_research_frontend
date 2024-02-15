@@ -9,11 +9,11 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class TextInputComponent {
   @Output() textSubmit = new EventEmitter<string>();
 
-  text: string = '';
+  user_code: string = '';
 
   constructor() { }
 
   sendText() {
-    this.textSubmit.emit(this.text);
+    this.textSubmit.emit(this.user_code);
   }
 }

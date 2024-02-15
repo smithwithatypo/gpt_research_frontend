@@ -8,15 +8,15 @@ import { Observable } from 'rxjs';
 export class BackendService {
   private PORT = 3000;
   private apiUrl = `http://localhost:${this.PORT}`; // Replace with your actual API URL
-  private processCodePath = 'api/ai/process-code';
+  private uploadJSONPath = 'api/text/upload-json';
   private transcribeAudioPath = 'api/ai/transcribe-audio';
   private uploadAudioPath = 'api/audio/upload-audio';
   private generateTextPath = 'api/ai/generate-text';
 
   constructor(private http: HttpClient) { }
 
-  sendText(text: string): Observable<any> {
-    const endpoint = `${this.apiUrl}/${this.processCodePath}`;
+  uploadJSON(text: string): Observable<any> {
+    const endpoint = `${this.apiUrl}/${this.uploadJSONPath}`;
     return this.http.post(endpoint, { text }, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
