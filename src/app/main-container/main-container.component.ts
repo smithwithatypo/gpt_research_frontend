@@ -10,6 +10,7 @@ import { BackendService } from '../backend.service';
 export class MainContainerComponent {
   processedText: string = '';
   transcribedAudio: string = '';
+  generatedText: string = '';
 
 
   constructor (private backendService: BackendService) { }
@@ -38,5 +39,13 @@ export class MainContainerComponent {
       }
     )
   };
+
+  generateText() {
+    this.backendService.generateText().subscribe({
+      next: (response) => this.generatedText = response.data,
+      error: (e) => console.error(`Error generating text: ${e}`),
+      complete: () => console.info('text generated successfully')
+    });
+  }
 
 }

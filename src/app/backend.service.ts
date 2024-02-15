@@ -11,6 +11,7 @@ export class BackendService {
   private processCodePath = 'api/ai/process-code';
   private transcribeAudioPath = 'api/ai/transcribe-audio';
   private uploadAudioPath = 'api/audio/upload-audio';
+  private generateTextPath = 'api/ai/generate-text';
 
   constructor(private http: HttpClient) { }
 
@@ -32,6 +33,11 @@ export class BackendService {
 
   transcribeAudio(): Observable<any> {
     const endpoint = `${this.apiUrl}/${this.transcribeAudioPath}`;
+    return this.http.get(endpoint);
+  }
+
+  generateText(): Observable<any> {
+    const endpoint = `${this.apiUrl}/${this.generateTextPath}`;
     return this.http.get(endpoint);
   }
 }

@@ -25,9 +25,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { TextInputComponent } from './text-input/text-input.component';
 import { MainContainerComponent } from './main-container/main-container.component';
 import { AudioInputComponent } from './audio-input/audio-input.component';
-import { TextOutputComponent } from './text-output/text-output.component';
 import { TranscribeAudioComponent } from './transcribe-audio/transcribe-audio.component';
 import { TranscribeAudioOutputComponent } from './transcribe-audio-output/transcribe-audio-output.component';
+import { GeneratedTextComponent } from './generated-text/generated-text.component';
 
 
 
@@ -38,9 +38,9 @@ import { TranscribeAudioOutputComponent } from './transcribe-audio-output/transc
     TextInputComponent,
     MainContainerComponent,
     AudioInputComponent,
-    TextOutputComponent,
     TranscribeAudioComponent,
-    TranscribeAudioOutputComponent
+    TranscribeAudioOutputComponent,
+    GeneratedTextComponent
   ],
   imports: [
     BrowserModule,
