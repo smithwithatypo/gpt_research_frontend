@@ -6,5 +6,4 @@
 <br>
 <app-transcribe-audio-output [text]="transcribedAudio"></app-transcribe-audio-output>
 <br>
-<button (click)="generateText()">Generate Text</button>
-<app-generated-text [generatedText]="generatedText"></app-generated-text>
+<app-generated-text [generatedText]="generatedText" (requestGenerateText)="generateText()"></app-generated-text>

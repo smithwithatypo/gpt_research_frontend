@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-generated-text',
@@ -7,9 +7,13 @@ import { Component, Input } from '@angular/core';
 })
 export class GeneratedTextComponent {
   @Input() generatedText: string = '';
+  @Output() requestGenerateText = new EventEmitter<any>();
 
   constructor() { }
 
+  onGenerateText() {
+    this.requestGenerateText.emit();
+  }
 
 
 }
