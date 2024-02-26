@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class BackendService {
   private PORT = 3000;
-  private apiUrl = `http://localhost:${this.PORT}`; // Replace with your actual API URL
+  private apiUrl = `http://localhost:${this.PORT}`; 
   private uploadJSONPath = 'api/text/upload-json';
   private transcribeAudioPath = 'api/ai/transcribe-audio';
   private uploadAudioPath = 'api/audio/upload-audio';
