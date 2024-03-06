@@ -14,14 +14,14 @@
             <app-text-input (textSubmit)="processText($event)"></app-text-input>
         </div>
         
-        <div class="audio-input">
-            <app-audio-input (audioRecorded)="processAudio($event)"></app-audio-input>
-        </div>
-        
-        <div class="transcribe-audio">
-            <app-transcribe-audio (transcriptionComplete)="transcribeAudio()"></app-transcribe-audio>
+        <div class="audio-buttons">
+                <app-audio-input (audioRecorded)="processAudio($event)"></app-audio-input>
+                <app-transcribe-audio (transcriptionComplete)="transcribeAudio()"></app-transcribe-audio>
+            </div>
+        <div class="display-transcription">
             <app-transcribe-audio-output [text]="transcribedAudio"></app-transcribe-audio-output>
         </div>
+        
     </div>
 </div>
 

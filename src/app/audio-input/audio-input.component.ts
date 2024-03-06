@@ -8,11 +8,13 @@ import { Component, Output, EventEmitter } from '@angular/core';
 export class AudioInputComponent {
   private mediaRecorder!: MediaRecorder;
   private audioChunks: Blob[] = [];
+  recording: boolean = false;
   @Output() audioRecorded = new EventEmitter<Blob>();
 
   constructor() { }
 
   startRecording() {
+    this.recording = true;
     navigator.mediaDevices.getUserMedia({ audio: true })
       .then(stream => {
         this.mediaRecorder = new MediaRecorder(stream);
@@ -28,6 +30,7 @@ export class AudioInputComponent {
   }
 
   stopRecording() {
+    this.recording = false;
     this.mediaRecorder.stop();
     this.mediaRecorder.onstop = () => {
       const audioBlob = new Blob(this.audioChunks, { type: 'audio/webm' });
