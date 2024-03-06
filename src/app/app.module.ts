@@ -17,6 +17,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
+import { MatExpansionModule } from '@angular/material/expansion';
+
 
 // Http
 import { HttpClientModule } from '@angular/common/http';
@@ -28,6 +30,7 @@ import { AudioInputComponent } from './audio-input/audio-input.component';
 import { TranscribeAudioComponent } from './transcribe-audio/transcribe-audio.component';
 import { TranscribeAudioOutputComponent } from './transcribe-audio-output/transcribe-audio-output.component';
 import { GeneratedTextComponent } from './generated-text/generated-text.component';
+import { ProblemDisplayComponent } from './problem-display/problem-display.component';
 
 
 
@@ -40,7 +43,8 @@ import { GeneratedTextComponent } from './generated-text/generated-text.componen
     AudioInputComponent,
     TranscribeAudioComponent,
     TranscribeAudioOutputComponent,
-    GeneratedTextComponent
+    GeneratedTextComponent,
+    ProblemDisplayComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +59,8 @@ import { GeneratedTextComponent } from './generated-text/generated-text.componen
     FormsModule,
     MatSliderModule,
     MatCardModule,
-    MatListModule
+    MatListModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

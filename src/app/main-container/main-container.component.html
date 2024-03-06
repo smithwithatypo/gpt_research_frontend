@@ -1,11 +1,21 @@
 <div class="row">
     <div class="column">
+        <div class="problem-display">
+            <!-- <app-problem-display [problem]="problem"></app-problem-display> -->
+            <app-problem-display></app-problem-display>
+        </div>
+        <div class="generate-text">
+            <app-generated-text [generatedText]="generatedText" (requestGenerateText)="generateText()"></app-generated-text>
+        </div>
+    </div>
+    
+    <div class="column">
         <div class="text-input">
             <app-text-input (textSubmit)="processText($event)"></app-text-input>
         </div>
         
         <div class="audio-input">
-            <app-audio-input (audioRecorded)="processAudio($event)" ></app-audio-input>
+            <app-audio-input (audioRecorded)="processAudio($event)"></app-audio-input>
         </div>
         
         <div class="transcribe-audio">
@@ -13,12 +23,6 @@
             <app-transcribe-audio-output [text]="transcribedAudio"></app-transcribe-audio-output>
         </div>
     </div>
-    <div class="column">
-        <div class="generate-text">
-                <app-generated-text [generatedText]="generatedText" (requestGenerateText)="generateText()"></app-generated-text>
-        </div>
-    </div>
-
 </div>
 
 
