@@ -31,6 +31,7 @@ import { TranscribeAudioComponent } from './transcribe-audio/transcribe-audio.co
 import { TranscribeAudioOutputComponent } from './transcribe-audio-output/transcribe-audio-output.component';
 import { GeneratedTextComponent } from './generated-text/generated-text.component';
 import { ProblemDisplayComponent } from './problem-display/problem-display.component';
+import { FeedbackFormComponent } from './feedback-form/feedback-form.component';
 
 
 
@@ -44,7 +45,8 @@ import { ProblemDisplayComponent } from './problem-display/problem-display.compo
     TranscribeAudioComponent,
     TranscribeAudioOutputComponent,
     GeneratedTextComponent,
-    ProblemDisplayComponent
+    ProblemDisplayComponent,
+    FeedbackFormComponent
   ],
   imports: [
     BrowserModule,
