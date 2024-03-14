@@ -24,14 +24,14 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { HttpClientModule } from '@angular/common/http';
 
 // Components
-import { TextInputComponent } from './text-input/text-input.component';
-import { MainContainerComponent } from './main-container/main-container.component';
-import { AudioInputComponent } from './audio-input/audio-input.component';
-import { TranscribeAudioComponent } from './transcribe-audio/transcribe-audio.component';
-import { TranscribeAudioOutputComponent } from './transcribe-audio-output/transcribe-audio-output.component';
-import { GeneratedTextComponent } from './generated-text/generated-text.component';
-import { ProblemDisplayComponent } from './problem-display/problem-display.component';
-import { FeedbackFormComponent } from './feedback-form/feedback-form.component';
+import { TextInputComponent } from './view-evaluation/text-input/text-input.component';
+import { MainContainerComponent } from './view-evaluation/main-container/main-container.component';
+import { AudioInputComponent } from './view-evaluation/audio-input/audio-input.component';
+import { TranscribeAudioComponent } from './view-evaluation/transcribe-audio/transcribe-audio.component';
+import { TranscribeAudioOutputComponent } from './view-evaluation/transcribe-audio-output/transcribe-audio-output.component';
+import { GeneratedTextComponent } from './view-evaluation/generated-text/generated-text.component';
+import { ProblemDisplayComponent } from './view-evaluation/problem-display/problem-display.component';
+import { FeedbackFormComponent } from './view-evaluation/feedback-form/feedback-form.component';
 
 
 
