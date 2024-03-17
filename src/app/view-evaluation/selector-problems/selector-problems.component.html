@@ -1,7 +1,7 @@
 <div *ngIf="problemSummaries">
     <ul> 
-        <li *ngFor="let problem of problemSummaries"> 
-            <a (click)="clickedProblem(problem.problemID)"> {{problem.summary}} </a>
+        <li *ngFor="let problem of problemSummaries" (click)="clickedProblem(problem.problemID)"> 
+            {{problem.summary}}
         </li>
     </ul>
 </div>

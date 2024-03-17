@@ -1,11 +1,18 @@
 <mat-card>
+
   <mat-card-header> 
     <mat-card-title>
-      Problem title here 
+      <div *ngIf="oneProblemData; else elseBlock">{{oneProblemData.summary}}</div>
+      <ng-template #elseBlock><p id="gray">Please select a problem</p></ng-template>
     </mat-card-title>
   </mat-card-header>
 
-  <mat-card-content> 
-    details here 
+  <mat-card-content>
+    <div *ngIf="oneProblemData">
+      <p>{{oneProblemData.problem}}</p>
+      <p>{{oneProblemData.example1}}</p>
+      <p>{{oneProblemData.example2}}</p>
+      <p>{{oneProblemData.example3}}</p>
+    </div>
   </mat-card-content>
 </mat-card>

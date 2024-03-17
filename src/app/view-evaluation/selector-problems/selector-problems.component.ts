@@ -6,7 +6,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./selector-problems.component.sass']
 })
 export class SelectorProblemsComponent {
-  @Input() problemSummaries: any;
+  @Input()  problemSummaries: any;
   @Output() getProblemSummaries = new EventEmitter<any>();
   @Output() getOneProblem = new EventEmitter<number>();
 

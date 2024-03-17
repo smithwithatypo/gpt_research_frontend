@@ -6,8 +6,8 @@
                 <app-selector-problems [problemSummaries]="problemSummaries" (getProblemSummaries)="getProblemSummaries()" (getOneProblem)="getOneProblem($event)"></app-selector-problems>
             </mat-sidenav>
             <mat-sidenav-content>
-                <app-problem-display></app-problem-display>
-                <p><button mat-raised-button (click)="sidenav.toggle()">Show Problems</button></p>
+                <app-problem-display [oneProblemData]="oneProblemData"></app-problem-display>
+                <p><button mat-stroked-button color="accent" (click)="sidenav.toggle()">Show Problems</button></p>
             </mat-sidenav-content>
         </mat-sidenav-container>
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-problem-display',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./problem-display.component.sass']
 })
 export class ProblemDisplayComponent {
+  @Input() oneProblemData: any;
 
 }

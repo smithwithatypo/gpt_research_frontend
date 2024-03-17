@@ -12,6 +12,7 @@ export class MainContainerComponent {
   transcribedAudio: string = '';
   generatedText: string = '';
   problemSummaries: any;
+  oneProblemData: any;
 
 
   constructor (private backendService: BackendService) { }
@@ -26,7 +27,7 @@ export class MainContainerComponent {
 
   getOneProblem(problemID: number) {
     this.backendService.getOneProblem(problemID).subscribe({
-      next: (response) => console.log(response.data),
+      next: (response) => this.oneProblemData = response.data,
       error: (e) => console.error(`Error getting problem: ${e}`),
       complete: () => console.info('loaded problem')
     });
