@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./problem-display.component.sass']
 })
 export class ProblemDisplayComponent {
-  
+
 }

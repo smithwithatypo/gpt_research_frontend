@@ -18,6 +18,8 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatSidenavModule } from '@angular/material/sidenav';
+
 
 
 // Http
@@ -32,6 +34,7 @@ import { TranscribeAudioOutputComponent } from './view-evaluation/transcribe-aud
 import { GeneratedTextComponent } from './view-evaluation/generated-text/generated-text.component';
 import { ProblemDisplayComponent } from './view-evaluation/problem-display/problem-display.component';
 import { FeedbackFormComponent } from './view-evaluation/feedback-form/feedback-form.component';
+import { SelectorProblemsComponent } from './view-evaluation/selector-problems/selector-problems.component';
 
 
 
@@ -46,7 +49,8 @@ import { FeedbackFormComponent } from './view-evaluation/feedback-form/feedback-
     TranscribeAudioOutputComponent,
     GeneratedTextComponent,
     ProblemDisplayComponent,
-    FeedbackFormComponent
+    FeedbackFormComponent,
+    SelectorProblemsComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +66,8 @@ import { FeedbackFormComponent } from './view-evaluation/feedback-form/feedback-
     MatSliderModule,
     MatCardModule,
     MatListModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]

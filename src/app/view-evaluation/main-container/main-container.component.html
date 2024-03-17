@@ -1,9 +1,17 @@
 <div class="row">
     <div class="column">
-        <div class="problem-display">
-            <!-- <app-problem-display [problem]="problem"></app-problem-display> -->
-            <app-problem-display></app-problem-display>
-        </div>
+
+        <mat-sidenav-container class="view-problems">
+            <mat-sidenav #sidenav mode="over"> 
+                <app-selector-problems [problemSummaries]="problemSummaries" (getProblemSummaries)="getProblemSummaries()" (getOneProblem)="getOneProblem($event)"></app-selector-problems>
+            </mat-sidenav>
+            <mat-sidenav-content>
+                <app-problem-display></app-problem-display>
+                <p><button mat-raised-button (click)="sidenav.toggle()">Show Problems</button></p>
+            </mat-sidenav-content>
+        </mat-sidenav-container>
+
+
         <div class="generate-text">
             <app-generated-text [generatedText]="generatedText" (requestGenerateText)="generateText()"></app-generated-text>
         </div>

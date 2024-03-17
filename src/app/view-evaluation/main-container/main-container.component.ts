@@ -11,9 +11,26 @@ export class MainContainerComponent {
   processedText: string = '';
   transcribedAudio: string = '';
   generatedText: string = '';
+  problemSummaries: any;
 
 
   constructor (private backendService: BackendService) { }
+
+  getProblemSummaries() {
+    this.backendService.getProblemSummaries().subscribe({
+      next: (response) => this.problemSummaries = response.data,
+      error: (e) => console.error(`Error getting problem summaries: ${e}`),
+      complete: () => console.info('loaded problem summaries')
+    });
+  }
+
+  getOneProblem(problemID: number) {
+    this.backendService.getOneProblem(problemID).subscribe({
+      next: (response) => console.log(response.data),
+      error: (e) => console.error(`Error getting problem: ${e}`),
+      complete: () => console.info('loaded problem')
+    });
+  }
 
   processText(text: string) {
       this.backendService.uploadJSON(text).subscribe({
@@ -32,7 +49,6 @@ export class MainContainerComponent {
 
   transcribeAudio() {
     this.backendService.transcribeAudio().subscribe({
-      // next: (response) => console.log(`Transcribed audio: ${response}`),
       next: (response) => this.transcribedAudio = response,
       error: (e) => console.error(`Error transcribing audio: ${e}`),
       complete: () => console.info('audio transcribed successfully')

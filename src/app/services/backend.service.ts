@@ -12,8 +12,20 @@ export class BackendService {
   private transcribeAudioPath = 'api/ai/transcribe-audio';
   private uploadAudioPath = 'api/audio/upload-audio';
   private generateTextPath = 'api/ai/generate-text';
+  private problemSummariesPath = 'api/problems/summaries'
+  private getOneProblemPath = 'api/problems'   // TODO: make endpoint in BE
 
   constructor(private http: HttpClient) { }
+
+  getProblemSummaries(): Observable<any> {
+    const endpoint = `${this.apiUrl}/${this.problemSummariesPath}`;
+    return this.http.get(endpoint);
+  }
+
+  getOneProblem(problemID: number): Observable<any> {  // TODO: NEEDS TESTING
+    const endpoint = `${this.apiUrl}/${this.getOneProblemPath}/${problemID}`
+    return this.http.get(endpoint)
+  }
 
   uploadJSON(text: string): Observable<any> {
     const endpoint = `${this.apiUrl}/${this.uploadJSONPath}`;
