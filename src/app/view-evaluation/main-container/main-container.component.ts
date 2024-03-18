@@ -13,6 +13,8 @@ export class MainContainerComponent {
   generatedText: string = '';
   problemSummaries: any;
   oneProblemData: any;
+  studentCodeData: string = '';
+  problemChoice: number = 0;
 
 
   constructor (private backendService: BackendService) { }
@@ -26,6 +28,7 @@ export class MainContainerComponent {
   }
 
   getOneProblem(problemID: number) {
+    this.problemChoice = problemID;
     this.backendService.getOneProblem(problemID).subscribe({
       next: (response) => this.oneProblemData = response.data,
       error: (e) => console.error(`Error getting problem: ${e}`),
@@ -34,14 +37,10 @@ export class MainContainerComponent {
   }
 
   processText(text: string) {
-      this.backendService.uploadJSON(text).subscribe({
-        next: (response) => console.log(`Processed text: ${response}`), 
-        error: (e) => console.error(`Error sending text: ${e}`),
-        complete: () => console.info('complete')});
+      this.studentCodeData = text;
   }
 
   processAudio(audioBlob: Blob) {
-    // console.log(`Audio blob received frontend: ${audioBlob.size / 1000} KB`);
     this.backendService.sendAudio(audioBlob).subscribe({
       next: (response) => console.log(`${response.message}: ${response.fileInfo / 1000} KB written to the server`),
       error: (e) => console.error(`Error sending audio: ${e}`),
@@ -59,6 +58,14 @@ export class MainContainerComponent {
 
   generateText() {
     this.backendService.generateText().subscribe({
+      next: (response) => this.generatedText = response.data,
+      error: (e) => console.error(`Error generating text: ${e}`),
+      complete: () => console.info('text generated successfully')
+    });
+  }
+
+  generateTextPost() {
+    this.backendService.generateTextPost(this.studentCodeData, this.problemChoice).subscribe({
       next: (response) => this.generatedText = response.data,
       error: (e) => console.error(`Error generating text: ${e}`),
       complete: () => console.info('text generated successfully')

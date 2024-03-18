@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, Input } from '@angular/core';
 
 
 @Component({
@@ -12,8 +12,12 @@ export class TextInputComponent {
   user_code: string = '';
 
   constructor() { }
-
-  sendText() {
+  
+  saveText() {
     this.textSubmit.emit(this.user_code);
+  }
+
+  clearText() {
+    this.user_code = '';
   }
 }

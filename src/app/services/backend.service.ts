@@ -52,4 +52,17 @@ export class BackendService {
     const endpoint = `${this.apiUrl}/${this.generateTextPath}`;
     return this.http.get(endpoint);
   }
+  
+  generateTextPost(studentCodeData: string, problemChoice: number): Observable<any> {
+    const endpoint = `${this.apiUrl}/${this.generateTextPath}`;
+    const body = {
+      studentCodeData,
+      problemChoice
+    };
+    return this.http.post(endpoint, body, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    });
+  }
 }

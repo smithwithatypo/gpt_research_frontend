@@ -17,7 +17,6 @@ export class SelectorProblemsComponent {
   }
 
   clickedProblem(problemID: number) {
-    console.log(problemID)
     this.getOneProblem.emit(problemID);
   }
 

@@ -3,5 +3,9 @@
         <mat-label>Enter your code here</mat-label>
         <textarea matInput [(ngModel)]="user_code"></textarea>
     </mat-form-field>
-    <button mat-button (click)="sendText()">Submit Code</button>
+    
+    <div class="button-row">
+        <button mat-stroked-button (click)="saveText()">Save</button>
+        <button mat-button (click)="clearText()">Clear</button>
+    </div>
 </div>
