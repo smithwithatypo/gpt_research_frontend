@@ -10,10 +10,10 @@ export class BackendService {
   private apiUrl = `http://localhost:${this.PORT}`; 
   private uploadJSONPath = 'api/text/upload-json';
   private transcribeAudioPath = 'api/ai/transcribe-audio';
-  private uploadAudioPath = 'api/audio/upload-audio';
+  // private uploadAudioPath = 'api/audio/upload-audio';     // Delete?
   private generateTextPath = 'api/ai/generate-text';
   private problemSummariesPath = 'api/problems/summaries'
-  private getOneProblemPath = 'api/problems'   // TODO: make endpoint in BE
+  private getOneProblemPath = 'api/problems'
 
   constructor(private http: HttpClient) { }
 
@@ -22,42 +22,38 @@ export class BackendService {
     return this.http.get(endpoint);
   }
 
-  getOneProblem(problemID: number): Observable<any> {  // TODO: NEEDS TESTING
+  getOneProblem(problemID: number): Observable<any> { 
     const endpoint = `${this.apiUrl}/${this.getOneProblemPath}/${problemID}`
     return this.http.get(endpoint)
   }
 
-  uploadJSON(text: string): Observable<any> {
-    const endpoint = `${this.apiUrl}/${this.uploadJSONPath}`;
-    return this.http.post(endpoint, { text }, {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
-    });
-  }
+  // uploadJSON(text: string): Observable<any> {       // delete
+  //   const endpoint = `${this.apiUrl}/${this.uploadJSONPath}`;
+  //   return this.http.post(endpoint, { text }, {
+  //     headers: new HttpHeaders({
+  //       'Content-Type': 'application/json'
+  //     })
+  //   });
+  // }
 
-  sendAudio(audioBlob: Blob): Observable<any> {
-    const endpoint = `${this.apiUrl}/${this.uploadAudioPath}`;
+  transcribeAudio(audioBlob: Blob): Observable<any> {
+    const endpoint = `${this.apiUrl}/${this.transcribeAudioPath}`;
     const formData = new FormData();
     formData.append('audio', audioBlob, 'audio.webm');
     return this.http.post(endpoint, formData);
   }
 
-  transcribeAudio(): Observable<any> {
-    const endpoint = `${this.apiUrl}/${this.transcribeAudioPath}`;
-    return this.http.get(endpoint);
-  }
-
-  generateText(): Observable<any> {
-    const endpoint = `${this.apiUrl}/${this.generateTextPath}`;
-    return this.http.get(endpoint);
-  }
+  // generateText(): Observable<any> {  // delete
+  //   const endpoint = `${this.apiUrl}/${this.generateTextPath}`;
+  //   return this.http.get(endpoint);
+  // }
   
-  generateTextPost(studentCodeData: string, problemChoice: number): Observable<any> {
+  generateTextPost(studentCodeData: string, problemChoice: number, transcribedAudio: string): Observable<any> {
     const endpoint = `${this.apiUrl}/${this.generateTextPath}`;
     const body = {
       studentCodeData,
-      problemChoice
+      problemChoice,
+      transcribedAudio
     };
     return this.http.post(endpoint, body, {
       headers: new HttpHeaders({

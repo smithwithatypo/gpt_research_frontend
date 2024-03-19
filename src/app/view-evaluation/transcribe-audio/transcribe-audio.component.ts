@@ -8,11 +8,11 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class TranscribeAudioComponent {
 
-  @Output() transcriptionComplete = new EventEmitter<any>(); 
+  @Output() transcriptionRequested = new EventEmitter<any>(); 
 
   constructor() { };
 
   transcribe() {
-    this.transcriptionComplete.emit();
+    this.transcriptionRequested.emit();
   }
 }

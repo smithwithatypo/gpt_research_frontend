@@ -1,4 +1,8 @@
-<div class="btn-row">
-    <button *ngIf="!recording" mat-raised-button color="accent" (click)="startRecording()">Start Recording</button>
-    <button *ngIf="recording" mat-raised-button color="warn" (click)="stopRecording()">Stop Recording</button>
+<div>
+    <button *ngIf="!recording" mat-raised-button color="accent" (click)="startRecording()">
+        Start Recording <mat-icon>mic</mat-icon>
+    </button>
+    <button *ngIf="recording" mat-raised-button color="warn" (click)="stopRecording()">
+        Stop Recording <mat-icon>stop_circle</mat-icon>
+    </button>
 </div>

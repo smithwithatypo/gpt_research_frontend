@@ -23,8 +23,7 @@
         </div>
         
         <div class="audio-buttons">
-                <app-audio-input (audioRecorded)="processAudio($event)"></app-audio-input>
-                <app-transcribe-audio (transcriptionComplete)="transcribeAudio()"></app-transcribe-audio>
+                <app-audio-input (audioRecorded)="transcribeAudio($event)"></app-audio-input>
             </div>
         <div class="display-transcription">
             <app-transcribe-audio-output [text]="transcribedAudio"></app-transcribe-audio-output>
@@ -33,7 +32,7 @@
     </div>
 </div>
 <footer>
-    <app-feedback-form></app-feedback-form>
+    <!-- <app-feedback-form></app-feedback-form> -->
 </footer>
 
 

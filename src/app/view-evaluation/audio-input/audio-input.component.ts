@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, Input, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-audio-input',
@@ -10,6 +10,7 @@ export class AudioInputComponent {
   private audioChunks: Blob[] = [];
   recording: boolean = false;
   @Output() audioRecorded = new EventEmitter<Blob>();
+
 
   constructor() { }
 
@@ -34,7 +35,7 @@ export class AudioInputComponent {
     this.mediaRecorder.stop();
     this.mediaRecorder.onstop = () => {
       const audioBlob = new Blob(this.audioChunks, { type: 'audio/webm' });
-      this.audioRecorded.emit(audioBlob); // Emit the audio blob to the parent component
+      this.audioRecorded.emit(audioBlob);
     };
   }
 
