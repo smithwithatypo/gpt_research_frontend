@@ -40,27 +40,6 @@ export class MainContainerComponent {
       this.studentCodeData = text;
   }
 
-  // processAudio(audioBlob: Blob) {
-  //   this.backendService.sendAudio(audioBlob).subscribe({
-  //     next: (response) => console.log(`${response.message}: ${response.fileInfo / 1000} KB written to the server`),
-  //     error: (e) => console.error(`Error sending audio: ${e}`),
-  //     complete: () => console.info('audio uploaded successfully')});
-  // }
-  
-  // saveAudio(audioBlob: Blob) {    // doesn't work bc localstorage is string not Blob
-  //   this.localStorageService.saveData('audioBlob', audioBlob);
-  //   console.log(`${audioBlob.size / 1000} KB saved to local storage`);
-  // }
-
-  // transcribeAudio(audioBlob: Blob) {
-  //   this.backendService.transcribeAudio(audioBlob).subscribe({
-  //     next: (response) => {this.transcribedAudio = response; console.log(response)},
-  //     error: (e) => console.error(`Error transcribing audio: ${e}`),
-  //     complete: () => console.info('audio transcribed successfully')
-  //     }
-  //   )
-  // };
-
   transcribeAudio(audioBlob: Blob) {
     this.backendService.transcribeAudio(audioBlob).subscribe({
       next: (response) => {
@@ -73,14 +52,6 @@ export class MainContainerComponent {
       complete: () => console.info('audio transcribed successfully')
     });
   }
-
-  // generateText() {       // delete
-  //   this.backendService.generateText().subscribe({
-  //     next: (response) => this.generatedText = response.data,
-  //     error: (e) => console.error(`Error generating text: ${e}`),
-  //     complete: () => console.info('text generated successfully')
-  //   });
-  // }
 
   generateTextPost() {
     this.backendService.generateTextPost(this.studentCodeData, this.problemChoice, this.transcribedAudio).subscribe({

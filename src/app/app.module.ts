@@ -29,7 +29,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { TextInputComponent } from './view-evaluation/text-input/text-input.component';
 import { MainContainerComponent } from './view-evaluation/main-container/main-container.component';
 import { AudioInputComponent } from './view-evaluation/audio-input/audio-input.component';
-import { TranscribeAudioComponent } from './view-evaluation/transcribe-audio/transcribe-audio.component';
 import { TranscribeAudioOutputComponent } from './view-evaluation/transcribe-audio-output/transcribe-audio-output.component';
 import { GeneratedTextComponent } from './view-evaluation/generated-text/generated-text.component';
 import { ProblemDisplayComponent } from './view-evaluation/problem-display/problem-display.component';
@@ -45,7 +44,6 @@ import { SelectorProblemsComponent } from './view-evaluation/selector-problems/s
     TextInputComponent,
     MainContainerComponent,
     AudioInputComponent,
-    TranscribeAudioComponent,
     TranscribeAudioOutputComponent,
     GeneratedTextComponent,
     ProblemDisplayComponent,
