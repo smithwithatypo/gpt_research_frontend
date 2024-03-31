@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class BackendService {
-  private PORT = 3000;
-  private apiUrl = `http://localhost:${this.PORT}`; 
+  private apiUrl = environment.apiBaseUrl;
   private transcribeAudioPath = 'api/ai/transcribe-audio';
   private generateTextPath = 'api/ai/generate-text';
   private problemSummariesPath = 'api/problems/summaries'

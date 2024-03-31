@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "gptresearchfrontend": {
+      "hosting": {
+        "gpt_research_frontend": [
+          "gptresearchfrontend"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "gptresearchfrontend"
+  }
+}

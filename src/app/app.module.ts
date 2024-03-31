@@ -6,6 +6,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // Routing
 import { AppRoutingModule } from './app-routing.module';
 
+// Firebase
+// import { AngularFireModule } from '@angular/fire';
+
 // Forms
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
@@ -19,8 +22,6 @@ import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSidenavModule } from '@angular/material/sidenav';
-
-
 
 // Http
 import { HttpClientModule } from '@angular/common/http';
@@ -52,6 +53,7 @@ import { SelectorProblemsComponent } from './view-evaluation/selector-problems/s
   ],
   imports: [
     BrowserModule,
+    // AngularFireModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,

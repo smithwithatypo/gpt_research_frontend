@@ -1,0 +1,15 @@
+{
+  "hosting": [
+    {
+      "target": "gpt_research_frontend",
+      "public": "dist/gpt_research_frontend",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}
