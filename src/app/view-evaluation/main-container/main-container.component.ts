@@ -1,4 +1,4 @@
-import { Component, NgZone } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 import { BackendService } from '../../services/backend.service';
 
 
@@ -7,7 +7,22 @@ import { BackendService } from '../../services/backend.service';
   templateUrl: './main-container.component.html',
   styleUrls: ['./main-container.component.sass']
 })
-export class MainContainerComponent {
+export class MainContainerComponent implements OnInit{
+
+  ngOnInit(): void {
+    this.checkForSafari();
+  }
+
+  checkForSafari(): void {
+    const userAgent = window.navigator.userAgent;
+    const isSafari = /^((?!chrome|android).)*safari/i.test(userAgent);
+
+    if (isSafari) {
+      alert("Please note: some functionality does not work in Safari. \nConsider using a different browser for this app.");
+    }
+  }
+
+  // initialize variables
   processedText: string = '';
   transcribedAudio: string = '';
   generatedText: string = '';
@@ -21,6 +36,7 @@ export class MainContainerComponent {
 
   constructor (private backendService: BackendService, private zone: NgZone) { }
 
+  // define functions
   getProblemSummaries() {
     this.backendService.getProblemSummaries().subscribe({
       next: (response) => this.problemSummaries = response.data,
