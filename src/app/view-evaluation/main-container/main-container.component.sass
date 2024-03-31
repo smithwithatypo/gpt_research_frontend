@@ -1,4 +1,4 @@
-
+$phone-size: 555px
 
 .row
     display: flex
@@ -14,7 +14,7 @@
     padding: 10px
     // border: 1px solid #fff
 
-@media (max-width: 555px)
+@media (max-width: $phone-size)
     .row
         flex-direction: column
     .column
@@ -51,5 +51,5 @@
     button
         margin-top: 10px
 
-    @media (max-width: 768px)
+    @media (max-width: $phone-size)
         min-height: 150px
