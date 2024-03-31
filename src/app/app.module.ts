@@ -38,6 +38,8 @@ import { GeneratedTextComponent } from './view-evaluation/generated-text/generat
 import { ProblemDisplayComponent } from './view-evaluation/problem-display/problem-display.component';
 import { FeedbackFormComponent } from './view-evaluation/feedback-form/feedback-form.component';
 import { SelectorProblemsComponent } from './view-evaluation/selector-problems/selector-problems.component';
+import { ViewLoginComponent } from './view-login/view-login.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 
@@ -52,7 +54,9 @@ import { SelectorProblemsComponent } from './view-evaluation/selector-problems/s
     GeneratedTextComponent,
     ProblemDisplayComponent,
     FeedbackFormComponent,
-    SelectorProblemsComponent
+    SelectorProblemsComponent,
+    ViewLoginComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
