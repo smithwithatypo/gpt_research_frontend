@@ -15,6 +15,8 @@ export class MainContainerComponent {
   oneProblemData: any;
   studentCodeData: string = '';
   problemChoice: number = 0;
+  isLoadingAI = false;
+  isLoadingAudio = false;
 
 
   constructor (private backendService: BackendService, private zone: NgZone) { }
@@ -41,22 +43,33 @@ export class MainContainerComponent {
   }
 
   transcribeAudio(audioBlob: Blob) {
+    this.isLoadingAudio = true;
     this.backendService.transcribeAudio(audioBlob).subscribe({
       next: (response) => {
         this.zone.run(() => {    // Ensures change detection is triggered
           this.transcribedAudio = response;
-          console.log(response);
+          this.isLoadingAudio = false;
         });
       },
-      error: (e) => console.error(`Error transcribing audio: ${e}`),
+      error: (e) => {
+        this.isLoadingAudio = false;
+        console.error(`Error transcribing audio: ${e}`);
+      },      
       complete: () => console.info('audio transcribed successfully')
     });
   }
 
   generateTextPost() {
+    this.isLoadingAI = true;
     this.backendService.generateTextPost(this.studentCodeData, this.problemChoice, this.transcribedAudio).subscribe({
-      next: (response) => this.generatedText = response.data,
-      error: (e) => console.error(`Error generating text: ${e}`),
+      next: (response) => {
+        this.generatedText = response.data;
+        this.isLoadingAI = false;
+      },
+      error: (e) => {
+        console.error(`Error generating text: ${e}`);
+        this.isLoadingAI = false;
+      },
       complete: () => console.info('text generated successfully')
     });
   }
