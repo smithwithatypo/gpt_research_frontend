@@ -1,4 +1,4 @@
-import { Component, NgZone, OnInit } from '@angular/core';
+import { Component, NgZone, ChangeDetectorRef, OnInit } from '@angular/core';
 import { BackendService } from '../../services/backend.service';
 
 
@@ -22,6 +22,7 @@ export class MainContainerComponent implements OnInit{
     }
   }
 
+
   // initialize variables
   processedText: string = '';
   transcribedAudio: string = '';
@@ -30,13 +31,13 @@ export class MainContainerComponent implements OnInit{
   oneProblemData: any;
   studentCodeData: string = '';
   problemChoice: number = 0;
-  isLoadingAI = false;
-  isLoadingAudio = false;
+  isLoadingAI: boolean = false;
+  isLoadingAudio: boolean = false;
 
+  // constructor
+  constructor (private backendService: BackendService, private zone: NgZone, private changeDetectorRef: ChangeDetectorRef) { }
 
-  constructor (private backendService: BackendService, private zone: NgZone) { }
-
-  // define functions
+  // functions
   getProblemSummaries() {
     this.backendService.getProblemSummaries().subscribe({
       next: (response) => this.problemSummaries = response.data,
@@ -60,6 +61,8 @@ export class MainContainerComponent implements OnInit{
 
   transcribeAudio(audioBlob: Blob) {
     this.isLoadingAudio = true;
+    this.changeDetectorRef.detectChanges(); // Manually trigger change detection
+
     this.backendService.transcribeAudio(audioBlob).subscribe({
       next: (response) => {
         this.zone.run(() => {    // Ensures change detection is triggered
@@ -68,10 +71,12 @@ export class MainContainerComponent implements OnInit{
         });
       },
       error: (e) => {
-        this.isLoadingAudio = false;
         console.error(`Error transcribing audio: ${e}`);
+        this.isLoadingAudio = false;
       },      
-      complete: () => console.info('audio transcribed successfully')
+      complete: () => {
+        console.info('audio transcribed successfully');
+      }
     });
   }
 
@@ -89,5 +94,4 @@ export class MainContainerComponent implements OnInit{
       complete: () => console.info('text generated successfully')
     });
   }
-
 }

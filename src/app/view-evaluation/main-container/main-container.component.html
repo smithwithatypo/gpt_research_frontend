@@ -4,7 +4,7 @@
     <div class="column">
 
         <mat-sidenav-container class="view-problems">
-            <mat-sidenav #sidenav mode="over"> 
+            <mat-sidenav #sidenav mode="over" (blur)="sidenav.close()"> 
                 <button mat-icon-button (click)="sidenav.close()"><mat-icon>clear</mat-icon></button>
                 <app-selector-problems [problemSummaries]="problemSummaries" (getProblemSummaries)="getProblemSummaries()" (getOneProblem)="getOneProblem($event)"></app-selector-problems>
             </mat-sidenav>
@@ -29,8 +29,8 @@
         <div class="audio-buttons">
             <app-audio-input (audioRecorded)="transcribeAudio($event)"></app-audio-input>
         </div>
-        <div *ngIf="isLoadingAudio"> <mat-spinner></mat-spinner> </div>
         <div class="display-transcription">
+            <div *ngIf="isLoadingAudio"> <mat-spinner></mat-spinner> </div>
             <app-transcribe-audio-output [text]="transcribedAudio"></app-transcribe-audio-output>
         </div>
         

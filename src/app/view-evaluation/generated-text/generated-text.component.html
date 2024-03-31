@@ -1,2 +1,8 @@
-<button mat-raised-button color="primary" (click)="onGenerateText()">Generate AI Feedback</button>
-<div *ngIf="generatedText">{{ generatedText }}</div>
+<p>
+    <button mat-raised-button color="primary" (click)="onGenerateText()">Submit Solution</button>
+</p>
+<div *ngIf="generatedText">
+    <mat-card-content>
+        {{ generatedText }}
+    </mat-card-content>
+</div>
