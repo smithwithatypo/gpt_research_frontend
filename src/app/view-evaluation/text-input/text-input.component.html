@@ -1,11 +1,12 @@
 <div class="text-column">
     <mat-form-field>
-        <mat-label>Enter your solution here</mat-label>
-        <textarea matInput [(ngModel)]="user_code"></textarea>
+        <mat-label>Type your solution here</mat-label>
+        <textarea matInput [(ngModel)]="user_code" (blur)="saveText()" (focus)="clearAutosave()"></textarea>
+        <mat-hint *ngIf="saved" align="end"><mat-icon>save</mat-icon>  autosaved </mat-hint>
+        
     </mat-form-field>
     
     <div class="button-row">
-        <button mat-stroked-button (click)="saveText()">Save</button>
         <button mat-button (click)="clearText()">Clear</button>
     </div>
 </div>
