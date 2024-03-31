@@ -23,6 +23,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTooltipModule } from '@angular/material/tooltip';
+
 
 // Http
 import { HttpClientModule } from '@angular/common/http';
@@ -69,7 +71,8 @@ import { SelectorProblemsComponent } from './view-evaluation/selector-problems/s
     MatListModule,
     MatExpansionModule,
     MatSidenavModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]
