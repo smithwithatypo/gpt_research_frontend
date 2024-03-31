@@ -18,7 +18,7 @@ export class MainContainerComponent implements OnInit{
     const isSafari = /^((?!chrome|android).)*safari/i.test(userAgent);
 
     if (isSafari) {
-      alert("Please note: some functionality does not work in Safari. \nConsider using a different browser for this app.");
+      alert("Please note: audio transcription is not supported yet for Safari or iPhones. \nThank you");
     }
   }
 

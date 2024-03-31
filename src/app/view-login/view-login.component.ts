@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 
@@ -7,20 +7,7 @@ import { Router } from '@angular/router';
   templateUrl: './view-login.component.html',
   styleUrls: ['./view-login.component.sass']
 })
-export class ViewLoginComponent implements OnInit{
-
-  ngOnInit(): void {
-    this.checkForSafari();
-  }
-
-  checkForSafari(): void {
-    const userAgent = window.navigator.userAgent;
-    const isSafari = /^((?!chrome|android).)*safari/i.test(userAgent);
-
-    if (isSafari) {
-      alert("Please note: some functionality does not work in Safari. \nConsider using a different browser for this app.");
-    }
-  }
+export class ViewLoginComponent {
   passcode: string = '';
 
   constructor(private router: Router) {}
