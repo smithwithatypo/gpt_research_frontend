@@ -24,6 +24,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import {MatChipsModule} from '@angular/material/chips';
+
 
 
 // Http
@@ -40,6 +42,7 @@ import { FeedbackFormComponent } from './view-evaluation/feedback-form/feedback-
 import { SelectorProblemsComponent } from './view-evaluation/selector-problems/selector-problems.component';
 import { ViewLoginComponent } from './view-login/view-login.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { PromptSelectorComponent } from './prompt-selector/prompt-selector.component';
 
 
 
@@ -56,7 +59,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     FeedbackFormComponent,
     SelectorProblemsComponent,
     ViewLoginComponent,
-    NavbarComponent
+    NavbarComponent,
+    PromptSelectorComponent
   ],
   imports: [
     BrowserModule,
@@ -76,7 +80,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     MatExpansionModule,
     MatSidenavModule,
     MatProgressSpinnerModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatChipsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

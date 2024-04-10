@@ -1,0 +1,12 @@
+
+<mat-chip-listbox>
+    <mat-chip-option *ngFor="let person of persons" [selected]="promptPerson === person" (click)="clickedPerson(person)">
+      {{ person }}
+    </mat-chip-option>
+</mat-chip-listbox>
+
+
+<mat-label>Difficulty</mat-label>
+<mat-slider discrete showTickMarks color="accent" min="1" max="5" step="1" value="1">
+    <input matSliderThumb #slider (change)="clickedDifficulty(slider.value)">
+</mat-slider>

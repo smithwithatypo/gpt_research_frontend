@@ -14,7 +14,10 @@
             </mat-sidenav-content>
         </mat-sidenav-container>
 
-
+        <div class="promptSelector">
+            <!-- <app-prompt-selector [prompts]="prompts" (selectPrompt)="selectPrompt($event)"></app-prompt-selector> -->
+            <app-prompt-selector [promptPerson]="promptPerson" (selectPromptPerson)="setPromptPerson($event)" (selectDifficultyValue)="setDifficultyValue($event)"></app-prompt-selector>
+        </div>
         <div class="generate-text">
             <app-generated-text [generatedText]="generatedText" (requestGenerateText)="generateTextPost()"></app-generated-text>
             <div *ngIf="isLoadingAI"> <mat-spinner></mat-spinner> </div>

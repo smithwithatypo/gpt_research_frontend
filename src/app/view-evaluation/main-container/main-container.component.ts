@@ -18,7 +18,7 @@ export class MainContainerComponent implements OnInit{
     const isSafari = /^((?!chrome|android).)*safari/i.test(userAgent);
 
     if (isSafari) {
-      alert("Please note: audio transcription is not supported yet for Safari or iPhones. \nThank you");
+      alert("Please note: Audio transcription is not yet supported for Safari or iPhones. \nThank you");
     }
   }
 
@@ -33,6 +33,8 @@ export class MainContainerComponent implements OnInit{
   problemChoice: number = 0;
   isLoadingAI: boolean = false;
   isLoadingAudio: boolean = false;
+  promptPerson: string = 'Professor';
+  promptDifficulty: number = 1;
 
   // constructor
   constructor (private backendService: BackendService, private zone: NgZone, private changeDetectorRef: ChangeDetectorRef) { }
@@ -80,9 +82,17 @@ export class MainContainerComponent implements OnInit{
     });
   }
 
+  setPromptPerson(person: string) {
+    this.promptPerson = person;
+  }
+
+  setDifficultyValue(value: number) {
+    this.promptDifficulty = value;
+  }
+
   generateTextPost() {
     this.isLoadingAI = true;
-    this.backendService.generateTextPost(this.studentCodeData, this.problemChoice, this.transcribedAudio).subscribe({
+    this.backendService.generateTextPost(this.studentCodeData, this.problemChoice, this.transcribedAudio, this.promptPerson, this.promptDifficulty).subscribe({
       next: (response) => {
         this.generatedText = response.data;
         this.isLoadingAI = false;
