@@ -35,7 +35,9 @@ export class BackendService {
   
   generateTextPost(studentCodeData: string, problemChoice: number, transcribedAudio: string, promptPerson: string, promptDifficulty: number): Observable<any> {
     const endpoint = `${this.apiUrl}/${this.generateTextPath}`;
+    const datetime = new Date().toISOString();
     const body = {
+      datetime,
       studentCodeData,
       problemChoice,
       transcribedAudio,
