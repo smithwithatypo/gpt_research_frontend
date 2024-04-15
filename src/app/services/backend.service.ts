@@ -47,7 +47,8 @@ export class BackendService {
     return this.http.post(endpoint, body, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
-      })
+      }),
+      withCredentials: true // Required for CORS
     });
   }
 }
