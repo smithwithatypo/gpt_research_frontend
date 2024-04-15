@@ -37,14 +37,6 @@ export class MainContainerComponent implements OnInit{
     transcript: '',
     problemID: 0
   });
-
-  // initialize variables
-  // processedText: string = '';
-  // transcribedAudio: string = '';
-  // studentCodeData: string = '';
-  // problemChoice: number = 0;
-  // promptPerson: string = 'Professor';
-  // promptDifficulty: number = 1;
   
   problemSummaries: any;
   oneProblemData: any;
@@ -76,7 +68,6 @@ export class MainContainerComponent implements OnInit{
   }
 
   processText(text: string) {
-      // this.studentCodeData = text;
       this.clientData.studentData.code = text;
   }
 
@@ -87,7 +78,6 @@ export class MainContainerComponent implements OnInit{
     this.backendService.transcribeAudio(audioBlob).subscribe({
       next: (response) => {
         this.zone.run(() => {    // Ensures change detection is triggered
-          // this.transcribedAudio = response;
           this.clientData.studentData.transcript = response;
           this.isLoadingAudio = false;
         });

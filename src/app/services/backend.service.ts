@@ -34,10 +34,8 @@ export class BackendService {
     return this.http.post(endpoint, formData);
   }
   
-  // generateTextPost(studentCodeData: string, problemChoice: number, transcribedAudio: string, promptPerson: string, promptDifficulty: number): Observable<any> {
   generateTextPost(clientData: ClientData): Observable<any> {
     const endpoint = `${this.apiUrl}/${this.generateTextPath}`;
-    // console.log(clientData);    // for debug
     return this.http.post(endpoint, clientData, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
