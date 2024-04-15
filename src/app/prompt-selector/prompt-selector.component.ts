@@ -9,19 +9,27 @@ export class PromptSelectorComponent {
   @Input() promptPerson: any;
   @Output() selectPromptPerson = new EventEmitter<string>();
   @Output() selectDifficultyValue = new EventEmitter<number>();
-  persons: string[] = ['Professor', 'Mentor', 'Interviewer'];
-  // selectedOption: string = 'Professor';
-  // slider_value: number = 1;
+  @Output() selectTemperatureValue = new EventEmitter<number>();
+  @Output() selectModelValue = new EventEmitter<string>();
+
+  persons: string[] = ['Professor', 'Mentor', 'Interviewer', 'Child'];
+  modelSelection: string = '3';
 
 
   clickedPerson(person: string): void {
-    // this.selectedOption = option;
     this.selectPromptPerson.emit(person);
   }
 
-  clickedDifficulty(value: any) {
-    // this.slider_value = value;
-    this.selectDifficultyValue.emit(value);
+  clickedDifficulty(value: string) {
+    this.selectDifficultyValue.emit(Number(value));
+  }
+
+  clickedTemperature(value: string) {
+    this.selectTemperatureValue.emit(Number(value));
+  }
+
+  modelSelectionChanged() {
+    this.selectModelValue.emit(this.modelSelection);
   }
 
 }

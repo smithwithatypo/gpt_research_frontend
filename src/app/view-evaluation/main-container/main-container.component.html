@@ -15,8 +15,7 @@
         </mat-sidenav-container>
 
         <div class="promptSelector">
-            <!-- <app-prompt-selector [prompts]="prompts" (selectPrompt)="selectPrompt($event)"></app-prompt-selector> -->
-            <app-prompt-selector [promptPerson]="promptPerson" (selectPromptPerson)="setPromptPerson($event)" (selectDifficultyValue)="setDifficultyValue($event)"></app-prompt-selector>
+            <app-prompt-selector [promptPerson]="clientData.promptData.voice" (selectPromptPerson)="setPromptPerson($event)" (selectDifficultyValue)="setDifficultyValue($event)" (selectTemperatureValue)="setTemperatureValue($event)" (selectModelValue)="setModelValue($event)"></app-prompt-selector>
         </div>
         <div class="generate-text">
             <app-generated-text [generatedText]="generatedText" (requestGenerateText)="generateTextPost()"></app-generated-text>
@@ -34,7 +33,7 @@
         </div>
         <div class="display-transcription">
             <div *ngIf="isLoadingAudio"> <mat-spinner></mat-spinner> </div>
-            <app-transcribe-audio-output [text]="transcribedAudio"></app-transcribe-audio-output>
+            <app-transcribe-audio-output [text]="clientData.studentData.transcript"></app-transcribe-audio-output>
         </div>
         
     </div>

@@ -1,5 +1,6 @@
 import { Component, NgZone, ChangeDetectorRef, OnInit } from '@angular/core';
 import { BackendService } from '../../services/backend.service';
+import { ClientData } from 'src/app/models/clientData';
 
 
 @Component({
@@ -23,18 +24,35 @@ export class MainContainerComponent implements OnInit{
   }
 
 
+  clientData: ClientData = new ClientData({
+    feedback: 'neutral',
+    datetime: new Date()
+  }, {
+    temperature: 0.1,
+    voice: 'Professor',
+    difficulty: 1,
+    model: '3'
+  }, {
+    code: '',
+    transcript: '',
+    problemID: 0
+  });
+
   // initialize variables
-  processedText: string = '';
-  transcribedAudio: string = '';
-  generatedText: string = '';
+  // processedText: string = '';
+  // transcribedAudio: string = '';
+  // studentCodeData: string = '';
+  // problemChoice: number = 0;
+  // promptPerson: string = 'Professor';
+  // promptDifficulty: number = 1;
+  
   problemSummaries: any;
   oneProblemData: any;
-  studentCodeData: string = '';
-  problemChoice: number = 0;
   isLoadingAI: boolean = false;
   isLoadingAudio: boolean = false;
-  promptPerson: string = 'Professor';
-  promptDifficulty: number = 1;
+  generatedText: string = '';
+  
+
 
   // constructor
   constructor (private backendService: BackendService, private zone: NgZone, private changeDetectorRef: ChangeDetectorRef) { }
@@ -49,7 +67,7 @@ export class MainContainerComponent implements OnInit{
   }
 
   getOneProblem(problemID: number) {
-    this.problemChoice = problemID;
+    this.clientData.studentData.problemID = problemID;
     this.backendService.getOneProblem(problemID).subscribe({
       next: (response) => this.oneProblemData = response.data,
       error: (e) => console.error(`Error getting problem: ${e}`),
@@ -58,7 +76,8 @@ export class MainContainerComponent implements OnInit{
   }
 
   processText(text: string) {
-      this.studentCodeData = text;
+      // this.studentCodeData = text;
+      this.clientData.studentData.code = text;
   }
 
   transcribeAudio(audioBlob: Blob) {
@@ -68,7 +87,8 @@ export class MainContainerComponent implements OnInit{
     this.backendService.transcribeAudio(audioBlob).subscribe({
       next: (response) => {
         this.zone.run(() => {    // Ensures change detection is triggered
-          this.transcribedAudio = response;
+          // this.transcribedAudio = response;
+          this.clientData.studentData.transcript = response;
           this.isLoadingAudio = false;
         });
       },
@@ -83,16 +103,24 @@ export class MainContainerComponent implements OnInit{
   }
 
   setPromptPerson(person: string) {
-    this.promptPerson = person;
+    this.clientData.promptData.voice = person;
   }
 
   setDifficultyValue(value: number) {
-    this.promptDifficulty = value;
+    this.clientData.promptData.difficulty = value;
+  }
+
+  setTemperatureValue(value: number) {
+    this.clientData.promptData.temperature = value;
+  }
+
+  setModelValue(value: string) {
+    this.clientData.promptData.model = value;
   }
 
   generateTextPost() {
     this.isLoadingAI = true;
-    this.backendService.generateTextPost(this.studentCodeData, this.problemChoice, this.transcribedAudio, this.promptPerson, this.promptDifficulty).subscribe({
+    this.backendService.generateTextPost(this.clientData).subscribe({
       next: (response) => {
         this.generatedText = response.data;
         this.isLoadingAI = false;

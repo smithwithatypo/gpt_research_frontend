@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { ClientData } from '../models/clientData';
 
 
 @Injectable({
@@ -33,18 +34,11 @@ export class BackendService {
     return this.http.post(endpoint, formData);
   }
   
-  generateTextPost(studentCodeData: string, problemChoice: number, transcribedAudio: string, promptPerson: string, promptDifficulty: number): Observable<any> {
+  // generateTextPost(studentCodeData: string, problemChoice: number, transcribedAudio: string, promptPerson: string, promptDifficulty: number): Observable<any> {
+  generateTextPost(clientData: ClientData): Observable<any> {
     const endpoint = `${this.apiUrl}/${this.generateTextPath}`;
-    const datetime = new Date().toISOString();
-    const body = {
-      datetime,
-      studentCodeData,
-      problemChoice,
-      transcribedAudio,
-      promptPerson,
-      promptDifficulty
-    };
-    return this.http.post(endpoint, body, {
+    // console.log(clientData);    // for debug
+    return this.http.post(endpoint, clientData, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       }),

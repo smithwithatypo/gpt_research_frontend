@@ -25,6 +25,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 
@@ -81,7 +82,8 @@ import { PromptSelectorComponent } from './prompt-selector/prompt-selector.compo
     MatSidenavModule,
     MatProgressSpinnerModule,
     MatTooltipModule,
-    MatChipsModule
+    MatChipsModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]
