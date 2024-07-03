@@ -26,7 +26,7 @@ export class MainContainerComponent implements OnInit{
 
   clientData: ClientData = new ClientData({
     feedback: 'neutral',
-    datetime: new Date()
+    datetime: new Date()    // TODO: update when button is clicked below
   }, {
     temperature: 0.1,
     voice: 'Professor',

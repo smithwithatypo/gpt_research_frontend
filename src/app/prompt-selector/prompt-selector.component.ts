@@ -13,7 +13,7 @@ export class PromptSelectorComponent {
   @Output() selectModelValue = new EventEmitter<string>();
 
   persons: string[] = ['Professor', 'Mentor', 'Interviewer', 'Child'];
-  modelSelection: string = '3';
+  modelSelection: string = '4';
 
 
   clickedPerson(person: string): void {
