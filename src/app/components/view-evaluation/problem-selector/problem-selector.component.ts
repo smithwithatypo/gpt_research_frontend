@@ -1,11 +1,11 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-selector-problems',
-  templateUrl: './selector-problems.component.html',
-  styleUrls: ['./selector-problems.component.sass']
+  selector: 'app-problem-selector',
+  templateUrl: './problem-selector.component.html',
+  styleUrls: ['./problem-selector.component.sass']
 })
-export class SelectorProblemsComponent {
+export class ProblemSelectorComponent {
   @Input()  problemSummaries: any;
   @Output() getProblemSummaries = new EventEmitter<any>();
   @Output() getOneProblem = new EventEmitter<number>();

@@ -1,5 +1,5 @@
 import { Component, NgZone, ChangeDetectorRef, OnInit } from '@angular/core';
-import { BackendService } from '../../services/backend.service';
+import { BackendService } from '../../../services/backend.service';
 import { ClientData } from 'src/app/models/clientData';
 
 
@@ -19,7 +19,7 @@ export class MainContainerComponent implements OnInit{
     const isSafari = /^((?!chrome|android).)*safari/i.test(userAgent);
 
     if (isSafari) {
-      alert("Please note: Audio transcription is not yet supported for Safari or iPhones. \nThank you");
+      alert("Audio transcription not yet supported for Safari or iPhones. \nThank you");
     }
   }
 

@@ -24,8 +24,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import {MatChipsModule} from '@angular/material/chips';
-import {MatRadioModule} from '@angular/material/radio';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatRadioModule } from '@angular/material/radio';
 
 
 
@@ -33,17 +33,17 @@ import {MatRadioModule} from '@angular/material/radio';
 import { HttpClientModule } from '@angular/common/http';
 
 // Components
-import { TextInputComponent } from './view-evaluation/text-input/text-input.component';
-import { MainContainerComponent } from './view-evaluation/main-container/main-container.component';
-import { AudioInputComponent } from './view-evaluation/audio-input/audio-input.component';
-import { TranscribeAudioOutputComponent } from './view-evaluation/transcribe-audio-output/transcribe-audio-output.component';
-import { GeneratedTextComponent } from './view-evaluation/generated-text/generated-text.component';
-import { ProblemDisplayComponent } from './view-evaluation/problem-display/problem-display.component';
-import { FeedbackFormComponent } from './view-evaluation/feedback-form/feedback-form.component';
-import { SelectorProblemsComponent } from './view-evaluation/selector-problems/selector-problems.component';
-import { ViewLoginComponent } from './view-login/view-login.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { PromptSelectorComponent } from './prompt-selector/prompt-selector.component';
+import { TextInputComponent } from './components/view-evaluation/text-input/text-input.component';
+import { MainContainerComponent } from './components/view-evaluation/main-container/main-container.component';
+import { AudioInputComponent } from './components/view-evaluation/audio-input/audio-input.component';
+import { AudioOutputComponent } from './components/view-evaluation/audio-output/audio-output.component';
+import { TextOutputComponent } from './components/view-evaluation/text-output/text-output.component';
+import { ProblemDisplayComponent } from './components/view-evaluation/problem-display/problem-display.component';
+import { FeedbackFormComponent } from './components/view-evaluation/feedback-form/feedback-form.component';
+import { ProblemSelectorComponent } from './components/view-evaluation/problem-selector/problem-selector.component';
+import { ViewLoginComponent } from './components/view-login/view-login.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { PromptSelectorComponent } from './components/view-evaluation/prompt-selector/prompt-selector.component';
 
 
 
@@ -54,11 +54,11 @@ import { PromptSelectorComponent } from './prompt-selector/prompt-selector.compo
     TextInputComponent,
     MainContainerComponent,
     AudioInputComponent,
-    TranscribeAudioOutputComponent,
-    GeneratedTextComponent,
+    AudioOutputComponent,
+    TextOutputComponent,
     ProblemDisplayComponent,
     FeedbackFormComponent,
-    SelectorProblemsComponent,
+    ProblemSelectorComponent,
     ViewLoginComponent,
     NavbarComponent,
     PromptSelectorComponent

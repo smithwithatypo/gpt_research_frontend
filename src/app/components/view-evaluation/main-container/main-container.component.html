@@ -6,7 +6,7 @@
         <mat-sidenav-container class="view-problems">
             <mat-sidenav #sidenav mode="over" (blur)="sidenav.close()"> 
                 <button mat-icon-button (click)="sidenav.close()"><mat-icon>clear</mat-icon></button>
-                <app-selector-problems [problemSummaries]="problemSummaries" (getProblemSummaries)="getProblemSummaries()" (getOneProblem)="getOneProblem($event)"></app-selector-problems>
+                <app-problem-selector [problemSummaries]="problemSummaries" (getProblemSummaries)="getProblemSummaries()" (getOneProblem)="getOneProblem($event)"></app-problem-selector>
             </mat-sidenav>
             <mat-sidenav-content>
                 <app-problem-display [oneProblemData]="oneProblemData"></app-problem-display>
@@ -16,9 +16,14 @@
 
         <div class="promptSelector">
             <app-prompt-selector [promptPerson]="clientData.promptData.voice" (selectPromptPerson)="setPromptPerson($event)" (selectDifficultyValue)="setDifficultyValue($event)" (selectTemperatureValue)="setTemperatureValue($event)" (selectModelValue)="setModelValue($event)"></app-prompt-selector>
+            <div>
+                <br>
+                <h4>Final System Prompt</h4>
+                <p> voice---instruction---guardrail---summarize---CoT---extractor</p>
+            </div>
         </div>
         <div class="generate-text">
-            <app-generated-text [generatedText]="generatedText" (requestGenerateText)="generateTextPost()"></app-generated-text>
+            <app-text-output [generatedText]="generatedText" (requestGenerateText)="generateTextPost()"></app-text-output>
             <div *ngIf="isLoadingAI"> <mat-spinner></mat-spinner> </div>
         </div>
     </div>
@@ -33,13 +38,12 @@
         </div>
         <div class="display-transcription">
             <div *ngIf="isLoadingAudio"> <mat-spinner></mat-spinner> </div>
-            <app-transcribe-audio-output [text]="clientData.studentData.transcript"></app-transcribe-audio-output>
+            <app-audio-output [text]="clientData.studentData.transcript"></app-audio-output>
         </div>
         
     </div>
 </div>
     
-
 
 
 
