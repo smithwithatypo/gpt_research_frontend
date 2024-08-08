@@ -7,47 +7,45 @@
 
     <mat-label>Voice</mat-label>
     <mat-chip-listbox>
-      <mat-chip-option> professor </mat-chip-option>
-      <mat-chip-option> student </mat-chip-option>
-      <mat-chip-option> none </mat-chip-option>
+      <mat-chip-option *ngFor="let voice of voices">
+        {{ voice }}
+      </mat-chip-option>
     </mat-chip-listbox>
 
     <mat-label>Instruction</mat-label>
     <mat-chip-listbox>
-      <mat-chip-option> no logic gaps </mat-chip-option>
-      <mat-chip-option> none </mat-chip-option>
+      <mat-chip-option *ngFor="let instruction of instructions">
+        {{ instruction }}
+      </mat-chip-option>
     </mat-chip-listbox>
 
     <mat-label>Guardrail</mat-label>
     <mat-chip-listbox>
-      <mat-chip-option> give answer </mat-chip-option>
-      <mat-chip-option> don't give answer </mat-chip-option>
-      <mat-chip-option> none </mat-chip-option>
+      <mat-chip-option *ngFor="let guardrail of guardrails">
+        {{ guardrail }}
+      </mat-chip-option>
     </mat-chip-listbox>
 
     <mat-label>Summarize</mat-label>
     <mat-chip-listbox>
-      <mat-chip-option> summarize </mat-chip-option>
-      <mat-chip-option> don't summarie </mat-chip-option>
-      <mat-chip-option> none </mat-chip-option>
+      <mat-chip-option *ngFor="let summarize of summarizes">
+        {{ summarize }}
+      </mat-chip-option>
     </mat-chip-listbox>
 
     <mat-label>Chain of Thought</mat-label>
     <mat-chip-listbox>
-      <mat-chip-option> step by step </mat-chip-option>
-      <mat-chip-option> explain reasoning </mat-chip-option>
-      <mat-chip-option> none </mat-chip-option>
+      <mat-chip-option *ngFor="let cot of COTs">
+        {{ cot }}
+      </mat-chip-option>
     </mat-chip-listbox>
 
     <mat-label>Extractor</mat-label>
     <mat-chip-listbox>
-      <mat-chip-option> likert scale </mat-chip-option>
-      <mat-chip-option> binary </mat-chip-option>
-      <mat-chip-option> 1-5 </mat-chip-option>
-      <mat-chip-option> 1-10 </mat-chip-option>
-      <mat-chip-option> none </mat-chip-option>
+      <mat-chip-option *ngFor="let extractor of extractors">
+        {{ extractor }}
+      </mat-chip-option>
     </mat-chip-listbox>
-    
 
 
 

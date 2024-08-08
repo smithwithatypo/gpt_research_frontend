@@ -15,6 +15,14 @@ export class PromptSelectorComponent {
   persons: string[] = ['Professor', 'Mentor', 'Interviewer', 'Child'];
   modelSelection: string = '4';
 
+  voices: string[] = ['professor', 'student']
+  instructions: string[] = ['no logic gaps', 'u', 'm', 'p']
+  guardrails: string[] = ['give answer', "don't give answer"]
+  summarizes: string[] = ['summarize', "don't summarize"]
+  COTs: string[] = ['step by step', 'explain reasoning']
+  extractors: string[] = ['likert scale', 'binary', '1-5', '1-10']
+
+
 
   clickedPerson(person: string): void {
     this.selectPromptPerson.emit(person);
