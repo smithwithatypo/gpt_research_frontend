@@ -16,6 +16,6 @@ export class PromptDisplayComponent {
   instruction: string = "instruction"
   guardrail: string = "guardrail"
   summarize: string = "summarize"
-  CoT: string = "CoT"
+  COT: string = "CoT"
   extractor: string = "extractor"
 }

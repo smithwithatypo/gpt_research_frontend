@@ -1,5 +1,6 @@
 import { Component, NgZone, ChangeDetectorRef, OnInit } from '@angular/core';
 import { BackendService } from '../../../services/backend.service';
+import { BrowserCheckService } from '../../../services/browser-check.service';
 import { ClientData } from 'src/app/models/clientData';
 
 
@@ -8,25 +9,19 @@ import { ClientData } from 'src/app/models/clientData';
   templateUrl: './main-container.component.html',
   styleUrls: ['./main-container.component.sass']
 })
+
 export class MainContainerComponent implements OnInit{
 
+  constructor (private backendService: BackendService, private zone: NgZone, private changeDetectorRef: ChangeDetectorRef, private browserCheckService: BrowserCheckService) { }
+
   ngOnInit(): void {
-    this.checkForSafari();
-  }
-
-  checkForSafari(): void {
-    const userAgent = window.navigator.userAgent;
-    const isSafari = /^((?!chrome|android).)*safari/i.test(userAgent);
-
-    if (isSafari) {
-      alert("Audio transcription not yet supported for Safari or iPhones. \nThank you");
-    }
+    this.browserCheckService.checkForSafari();
   }
 
 
   clientData: ClientData = new ClientData({
     feedback: '',
-    datetime: new Date()    // TODO: update when button is clicked below
+    datetime: new Date()
   }, {
     temperature: 0.1,
     voice: 'professor',
@@ -49,10 +44,6 @@ export class MainContainerComponent implements OnInit{
   
 
 
-  // constructor
-  constructor (private backendService: BackendService, private zone: NgZone, private changeDetectorRef: ChangeDetectorRef) { }
-
-  // functions
   getProblemSummaries() {
     this.backendService.getProblemSummaries().subscribe({
       next: (response) => this.problemSummaries = response.data,
@@ -125,6 +116,7 @@ export class MainContainerComponent implements OnInit{
 
   generateTextPost() {
     this.isLoadingAI = true;
+    this.clientData.metaData.datetime = new Date();
     this.backendService.generateTextPost(this.clientData).subscribe({
       next: (response) => {
         this.generatedText = response.data;
