@@ -18,18 +18,17 @@ export class MainContainerComponent implements OnInit{
     this.browserCheckService.checkForSafari();
   }
 
-
   clientData: ClientData = new ClientData({
     feedback: '',
     datetime: new Date()
   }, {
-    temperature: 0.1,
+    temperature: 0,
     voice: 'professor',
     instruction: 'no logic gaps',
     guardrail: "don't give answer",
     summarize: "summarize",
-    COT: "step by step",
-    extractor: "1-5"
+    COT: "none",
+    extractor: "none"
   }, {
     code: '',
     transcript: '',

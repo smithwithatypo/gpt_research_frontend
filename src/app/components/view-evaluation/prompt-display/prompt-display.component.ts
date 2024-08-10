@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-prompt-display',
@@ -8,14 +8,20 @@ import { Component } from '@angular/core';
 export class PromptDisplayComponent {
 
   constructor() { }
+  @Input() promptVoice: any;
+  @Input() promptInstruction: any;
+  @Input() promptGuardrail: any;
+  @Input() promptSummarize: any;
+  @Input() promptCOT: any;
+  @Input() promptExtractor: any;
 
   title: string = "System Prompt"
   tooltip: string = "{voice} {instruction} {guardrail} {summarize} {CoT} {extractor}"
 
-  voice: string = "voice"
-  instruction: string = "instruction"
-  guardrail: string = "guardrail"
-  summarize: string = "summarize"
-  COT: string = "CoT"
-  extractor: string = "extractor"
+  // voice: string = "voice"
+  // instruction: string = "instruction"
+  // guardrail: string = "guardrail"
+  // summarize: string = "summarize"
+  // COT: string = "CoT"
+  // extractor: string = "extractor"
 }

@@ -21,12 +21,12 @@ export class PromptSelectorComponent {
   @Output() selectPromptExtractor = new EventEmitter<string>();
   @Output() selectTemperatureValue = new EventEmitter<number>();
 
-  voices: string[] = ['professor', 'student']
-  instructions: string[] = ['no logic gaps', 'u', 'm', 'p']
-  guardrails: string[] = ['give answer', "don't give answer"]
-  summarizes: string[] = ['summarize', "don't summarize"]
-  COTs: string[] = ['step by step', 'explain reasoning']
-  extractors: string[] = ['likert scale', 'binary', '1-5', '1-10']
+  voices: string[] = ['professor', 'student', 'none']
+  instructions: string[] = ['no logic gaps', 'u', 'm', 'p', 'none']
+  guardrails: string[] = ['give answer', "don't give answer", 'none']
+  summarizes: string[] = ['summarize', "don't summarize", 'none']
+  COTs: string[] = ['step by step', 'explain reasoning', 'none']
+  extractors: string[] = ['likert scale', 'binary', '1-5', '1-10', 'none']
 
   clickedVoice(voice: string): void {
     this.selectPromptVoice.emit(voice);

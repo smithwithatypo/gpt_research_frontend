@@ -15,7 +15,16 @@
         </mat-sidenav-container>
 
         <div class="prompt-display">
-            <app-prompt-display></app-prompt-display>
+            <app-prompt-display
+            [promptVoice]="clientData.promptData.voice"
+            [promptInstruction]="clientData.promptData.instruction"
+            [promptGuardrail]="clientData.promptData.guardrail"
+            [promptSummarize]="clientData.promptData.summarize"
+            [promptCOT]="clientData.promptData.COT"
+            [promptExtractor]="clientData.promptData.extractor"            
+            >
+
+            </app-prompt-display>
         </div>
 
         <div class="promptSelector">
@@ -35,6 +44,9 @@
                 (selectTemperatureValue)="setTemperatureValue($event)"
             >
             </app-prompt-selector>
+            <br>
+            <br>
+            <br>
         </div>
     </div>
     
