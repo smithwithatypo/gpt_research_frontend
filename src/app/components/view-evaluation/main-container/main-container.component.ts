@@ -29,9 +29,12 @@ export class MainContainerComponent implements OnInit{
     datetime: new Date()    // TODO: update when button is clicked below
   }, {
     temperature: 0.1,
-    voice: 'Professor',
-    difficulty: 1,
-    model: '3'
+    voice: 'professor',
+    instructions: 'no logic gaps',
+    guardrails: "don't give answer",
+    summarizes: "summarize",
+    COTs: "step by step",
+    extractors: "1-5"
   }, {
     code: '',
     transcript: '',
@@ -92,21 +95,27 @@ export class MainContainerComponent implements OnInit{
     });
   }
 
-  setPromptPerson(person: string) {
-    this.clientData.promptData.voice = person;
+  setPromptVoice(voice: string) {
+    this.clientData.promptData.voice = voice;
   }
 
-  setDifficultyValue(value: number) {
-    this.clientData.promptData.difficulty = value;
+  setPromptInstruction(instruction: string) {
+    this.clientData.promptData.instructions = instruction;
   }
+
+  
+
+  // setDifficultyValue(value: number) {
+  //   this.clientData.promptData.difficulty = value;
+  // }
 
   setTemperatureValue(value: number) {
     this.clientData.promptData.temperature = value;
   }
 
-  setModelValue(value: string) {
-    this.clientData.promptData.model = value;
-  }
+  // setModelValue(value: string) {
+  //   this.clientData.promptData.model = value;
+  // }
 
   generateTextPost() {
     this.isLoadingAI = true;

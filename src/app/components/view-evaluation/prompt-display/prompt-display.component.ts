@@ -12,5 +12,10 @@ export class PromptDisplayComponent {
   title: string = "System Prompt"
   tooltip: string = "{voice} {instruction} {guardrail} {summarize} {CoT} {extractor}"
 
-
+  voice: string = "voice"
+  instruction: string = "instruction"
+  guardrail: string = "guardrail"
+  summarize: string = "summarize"
+  CoT: string = "CoT"
+  extractor: string = "extractor"
 }
