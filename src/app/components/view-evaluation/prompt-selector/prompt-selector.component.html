@@ -14,35 +14,35 @@
 
     <mat-label>Instruction</mat-label>
     <mat-chip-listbox>
-      <mat-chip-option *ngFor="let instruction of instructions">
+      <mat-chip-option *ngFor="let instruction of instructions" [selected]="promptInstruction === instruction" (click)="clickedInstruction(instruction)">
         {{ instruction }}
       </mat-chip-option>
     </mat-chip-listbox>
 
     <mat-label>Guardrail</mat-label>
     <mat-chip-listbox>
-      <mat-chip-option *ngFor="let guardrail of guardrails">
+      <mat-chip-option *ngFor="let guardrail of guardrails" [selected]="promptGuardrail === guardrail" (click)="clickedGuardrail(guardrail)">
         {{ guardrail }}
       </mat-chip-option>
     </mat-chip-listbox>
 
     <mat-label>Summarize</mat-label>
     <mat-chip-listbox>
-      <mat-chip-option *ngFor="let summarize of summarizes">
+      <mat-chip-option *ngFor="let summarize of summarizes" [selected]="promptSummarize === summarize" (click)="clickedSummarize(summarize)">
         {{ summarize }}
       </mat-chip-option>
     </mat-chip-listbox>
 
     <mat-label>Chain of Thought</mat-label>
     <mat-chip-listbox>
-      <mat-chip-option *ngFor="let cot of COTs">
+      <mat-chip-option *ngFor="let cot of COTs" [selected]="promptCOT === cot" (click)="clickedCOT(cot)">
         {{ cot }}
       </mat-chip-option>
     </mat-chip-listbox>
 
     <mat-label>Extractor</mat-label>
     <mat-chip-listbox>
-      <mat-chip-option *ngFor="let extractor of extractors">
+      <mat-chip-option *ngFor="let extractor of extractors" [selected]="promptExtractor === extractor" (click)="clickedExtractor(extractor)">
         {{ extractor }}
       </mat-chip-option>
     </mat-chip-listbox>

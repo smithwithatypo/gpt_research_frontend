@@ -15,18 +15,11 @@ export class PromptSelectorComponent {
 
   @Output() selectPromptVoice = new EventEmitter<string>();
   @Output() selectPromptInstruction = new EventEmitter<string>();
-  @Output() selectGuardrailValue = new EventEmitter<string>();
+  @Output() selectPromptGuardrail = new EventEmitter<string>();
   @Output() selectPromptSummarize = new EventEmitter<string>();
   @Output() selectPromptCOT = new EventEmitter<string>();
   @Output() selectPromptExtractor = new EventEmitter<string>();
   @Output() selectTemperatureValue = new EventEmitter<number>();
-
-
-  // @Output() selectDifficultyValue = new EventEmitter<number>();
-  // @Output() selectModelValue = new EventEmitter<string>();
-
-  // persons: string[] = ['Professor', 'Mentor', 'Interviewer', 'Child'];
-  // modelSelection: string = '4';
 
   voices: string[] = ['professor', 'student']
   instructions: string[] = ['no logic gaps', 'u', 'm', 'p']
@@ -43,8 +36,8 @@ export class PromptSelectorComponent {
     this.selectPromptInstruction.emit(instruction);
   }
   
-  clickedGuardrail(value: string) {
-    this.selectGuardrailValue.emit(value);
+  clickedGuardrail(guardrail: string) {
+    this.selectPromptGuardrail.emit(guardrail);
   }
   
   clickedSummarize(summarize: string) {
@@ -62,15 +55,4 @@ export class PromptSelectorComponent {
   clickedTemperature(value: string) {
     this.selectTemperatureValue.emit(Number(value));
   }
-
-
-  // clickedDifficulty(value: string) {
-  //   this.selectDifficultyValue.emit(Number(value));
-  // }
-
-
-  // modelSelectionChanged() {
-  //   this.selectModelValue.emit(this.modelSelection);
-  // }
-
 }

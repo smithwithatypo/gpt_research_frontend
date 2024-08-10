@@ -122,15 +122,6 @@ export class MainContainerComponent implements OnInit{
   setTemperatureValue(value: number) {
     this.clientData.promptData.temperature = value;
   }
-  
-  // setDifficultyValue(value: number) {
-  //   this.clientData.promptData.difficulty = value;
-  // }
-
-
-  // setModelValue(value: string) {
-  //   this.clientData.promptData.model = value;
-  // }
 
   generateTextPost() {
     this.isLoadingAI = true;
