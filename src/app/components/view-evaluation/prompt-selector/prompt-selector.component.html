@@ -7,7 +7,7 @@
 
     <mat-label>Voice</mat-label>
     <mat-chip-listbox>
-      <mat-chip-option *ngFor="let voice of voices">
+      <mat-chip-option *ngFor="let voice of voices" [selected]="promptVoice === voice" (click)="clickedVoice(voice)">
         {{ voice }}
       </mat-chip-option>
     </mat-chip-listbox>

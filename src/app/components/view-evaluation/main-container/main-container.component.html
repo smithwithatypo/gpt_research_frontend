@@ -19,8 +19,22 @@
         </div>
 
         <div class="promptSelector">
-            <!-- <app-prompt-selector [promptPerson]="clientData.promptData.voice" (selectPromptVoice)="setPromptVoice($event)" (selectDifficultyValue)="setDifficultyValue($event)" (selectTemperatureValue)="setTemperatureValue($event)" (selectModelValue)="setModelValue($event)"></app-prompt-selector> -->
-            <app-prompt-selector [promptVoice]="clientData.promptData.voice" (selectPromptVoice)="setPromptVoice($event)" (selectTemperatureValue)="setTemperatureValue($event)"></app-prompt-selector>
+            <app-prompt-selector
+                [promptVoice]="clientData.promptData.voice"
+                [promptInstruction]="clientData.promptData.instruction"
+                [promptGuardrail]="clientData.promptData.guardrail"
+                [promptSummarize]="clientData.promptData.summarize"
+                [promptCoT]="clientData.promptData.CoT"
+                [promptExtractor]="clientData.promptData.extractor"
+                (selectPromptVoice)="setPromptVoice($event)"
+                (selectPromptInstruction)="setPromptInstruction($event)"
+                (selectPromptGuardrail)="setPromptGuardrail($event)"
+                (selectPromptSummarize)="setPromptSummarize($event)"
+                (selectPromptCoT)="setPromptCoT($event)"
+                (selectPromptExtractor)="setPromptExtractor($event)"
+                (selectTemperatureValue)="setTemperatureValue($event)"
+            >
+            </app-prompt-selector>
         </div>
     </div>
     

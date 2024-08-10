@@ -25,16 +25,16 @@ export class MainContainerComponent implements OnInit{
 
 
   clientData: ClientData = new ClientData({
-    feedback: 'neutral',
+    feedback: '',
     datetime: new Date()    // TODO: update when button is clicked below
   }, {
     temperature: 0.1,
     voice: 'professor',
-    instructions: 'no logic gaps',
-    guardrails: "don't give answer",
-    summarizes: "summarize",
-    COTs: "step by step",
-    extractors: "1-5"
+    instruction: 'no logic gaps',
+    guardrail: "don't give answer",
+    summarize: "summarize",
+    COT: "step by step",
+    extractor: "1-5"
   }, {
     code: '',
     transcript: '',
@@ -100,18 +100,33 @@ export class MainContainerComponent implements OnInit{
   }
 
   setPromptInstruction(instruction: string) {
-    this.clientData.promptData.instructions = instruction;
+    this.clientData.promptData.instruction = instruction;
   }
 
-  
+  setPromptGuardrail(guardrail: string) {
+    this.clientData.promptData.guardrail = guardrail;
+  }
 
+  setPromptSummarize(summarize: string) {
+    this.clientData.promptData.summarize = summarize;
+  }
+
+  setPromptCOT(COT: string) {
+    this.clientData.promptData.COT = COT;
+  }
+
+  setPromptExtractor(extractor: string) {
+    this.clientData.promptData.extractor = extractor;
+  }
+  
+  setTemperatureValue(value: number) {
+    this.clientData.promptData.temperature = value;
+  }
+  
   // setDifficultyValue(value: number) {
   //   this.clientData.promptData.difficulty = value;
   // }
 
-  setTemperatureValue(value: number) {
-    this.clientData.promptData.temperature = value;
-  }
 
   // setModelValue(value: string) {
   //   this.clientData.promptData.model = value;
