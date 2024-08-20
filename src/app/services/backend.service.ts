@@ -8,14 +8,21 @@ import { ClientData } from '../models/clientData';
 @Injectable({
   providedIn: 'root'
 })
+
 export class BackendService {
   private apiUrl = environment.apiBaseUrl;
-  private transcribeAudioPath = 'api/ai/transcribe-audio';
-  private generateTextPath = 'api/ai/generate-text';
+  private getPromptOptionsPath = 'api/promptOptions/all';
   private problemSummariesPath = 'api/problems/summaries'
   private getOneProblemPath = 'api/problems'
+  private transcribeAudioPath = 'api/ai/transcribe-audio';
+  private generateTextPath = 'api/ai/generate-text';
 
   constructor(private http: HttpClient) { }
+
+  getPromptOptions(): Observable<any> {
+    const endpoint = `${this.apiUrl}/${this.getPromptOptionsPath}`
+    return this.http.get(endpoint);
+  }
 
   getProblemSummaries(): Observable<any> {
     const endpoint = `${this.apiUrl}/${this.problemSummariesPath}`;

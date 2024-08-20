@@ -7,80 +7,53 @@
 
     <mat-label>Voice</mat-label>
     <mat-chip-listbox>
-      <mat-chip-option *ngFor="let voice of voices" [selected]="promptVoice === voice" (click)="clickedVoice(voice)">
-        {{ voice }}
+      <mat-chip-option *ngFor="let voice of promptOptions.voice" [selected]="promptVoice.summary === voice.summary" (click)="clickedVoice(voice)">
+        {{ voice.summary }}
       </mat-chip-option>
     </mat-chip-listbox>
 
     <mat-label>Instruction</mat-label>
     <mat-chip-listbox>
-      <mat-chip-option *ngFor="let instruction of instructions" [selected]="promptInstruction === instruction" (click)="clickedInstruction(instruction)">
-        {{ instruction }}
+      <mat-chip-option *ngFor="let instruction of promptOptions.instruction" [selected]="promptInstruction.summary === instruction.summary" (click)="clickedInstruction(instruction)">
+        {{ instruction.summary }}
       </mat-chip-option>
     </mat-chip-listbox>
 
     <mat-label>Guardrail</mat-label>
     <mat-chip-listbox>
-      <mat-chip-option *ngFor="let guardrail of guardrails" [selected]="promptGuardrail === guardrail" (click)="clickedGuardrail(guardrail)">
-        {{ guardrail }}
+      <mat-chip-option *ngFor="let guardrail of promptOptions.guardrail" [selected]="promptGuardrail.summary === guardrail.summary" (click)="clickedGuardrail(guardrail)">
+        {{ guardrail.summary }}
       </mat-chip-option>
     </mat-chip-listbox>
 
     <mat-label>Summarize</mat-label>
     <mat-chip-listbox>
-      <mat-chip-option *ngFor="let summarize of summarizes" [selected]="promptSummarize === summarize" (click)="clickedSummarize(summarize)">
-        {{ summarize }}
+      <mat-chip-option *ngFor="let summarize of promptOptions.summarize" [selected]="promptSummarize.summary === summarize.summary" (click)="clickedSummarize(summarize)">
+        {{ summarize.summary }}
       </mat-chip-option>
     </mat-chip-listbox>
 
     <mat-label>Chain of Thought</mat-label>
     <mat-chip-listbox>
-      <mat-chip-option *ngFor="let cot of COTs" [selected]="promptCOT === cot" (click)="clickedCOT(cot)">
-        {{ cot }}
+      <mat-chip-option *ngFor="let cot of promptOptions.COT" [selected]="promptCOT.summary === cot.summary" (click)="clickedCOT(cot)">
+        {{ cot.summary }}
       </mat-chip-option>
     </mat-chip-listbox>
 
     <mat-label>Extractor</mat-label>
     <mat-chip-listbox>
-      <mat-chip-option *ngFor="let extractor of extractors" [selected]="promptExtractor === extractor" (click)="clickedExtractor(extractor)">
-        {{ extractor }}
+      <mat-chip-option *ngFor="let extractor of promptOptions.extractor" [selected]="promptExtractor.summary === extractor.summary" (click)="clickedExtractor(extractor)">
+        {{ extractor.summary }}
       </mat-chip-option>
     </mat-chip-listbox>
 
-
-
-
-    <!-- <mat-chip-listbox>
-      <mat-chip-option *ngFor="let person of persons" [selected]="promptPerson === person" (click)="clickedPerson(person)">
-        {{ person }}
-      </mat-chip-option>
-    </mat-chip-listbox> -->
-  
-  
-    
     <br>
     
     <mat-label>Temperature</mat-label>
     <mat-slider discrete color="accent" min="0" max="1" step="0.1" value=".1">
       <input matSliderThumb #temperatureSlider (change)="clickedTemperature(temperatureSlider.value)">
     </mat-slider>
-    
+  
     <br> 
     
-
 </mat-expansion-panel>
-
-
-
-<!-- deprecated below this line -->
-
-  <!-- <mat-label>Difficulty</mat-label>
-  <mat-slider discrete showTickMarks color="accent" min="1" max="5" step="1" value="1">
-      <input matSliderThumb #slider (change)="clickedDifficulty(slider.value)">
-  </mat-slider> -->
-
-  <!-- <mat-label>AI Model</mat-label>        
-  <mat-radio-group [(ngModel)]="modelSelection" (ngModelChange)="modelSelectionChanged()"> 
-    <mat-radio-button value="3">Fast</mat-radio-button>
-    <mat-radio-button value="4">Accurate</mat-radio-button>
-  </mat-radio-group> -->

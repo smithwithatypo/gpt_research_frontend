@@ -1,11 +1,21 @@
-import { Component, Output, Input, EventEmitter } from '@angular/core';
+import { Component, Output, Input, EventEmitter, OnInit } from '@angular/core';
+import { PromptOptionSingle } from 'src/app/models/promptOptionSingle';
 
 @Component({
   selector: 'app-prompt-selector',
   templateUrl: './prompt-selector.component.html',
   styleUrls: ['./prompt-selector.component.sass']
 })
-export class PromptSelectorComponent {
+
+export class PromptSelectorComponent implements OnInit {
+
+  constructor () { };
+
+  ngOnInit(): void {
+    // this.initialized.emit();
+  }
+
+  @Input() promptOptions: any;
   @Input() promptVoice: any;
   @Input() promptInstruction: any;
   @Input() promptGuardrail: any;
@@ -13,42 +23,36 @@ export class PromptSelectorComponent {
   @Input() promptCOT: any;
   @Input() promptExtractor: any;
 
-  @Output() selectPromptVoice = new EventEmitter<string>();
-  @Output() selectPromptInstruction = new EventEmitter<string>();
-  @Output() selectPromptGuardrail = new EventEmitter<string>();
-  @Output() selectPromptSummarize = new EventEmitter<string>();
-  @Output() selectPromptCOT = new EventEmitter<string>();
-  @Output() selectPromptExtractor = new EventEmitter<string>();
+  // @Output() initialized = new EventEmitter<void>();
+  @Output() selectPromptVoice = new EventEmitter<PromptOptionSingle>();
+  @Output() selectPromptInstruction = new EventEmitter<PromptOptionSingle>();
+  @Output() selectPromptGuardrail = new EventEmitter<PromptOptionSingle>();
+  @Output() selectPromptSummarize = new EventEmitter<PromptOptionSingle>();
+  @Output() selectPromptCOT = new EventEmitter<PromptOptionSingle>();
+  @Output() selectPromptExtractor = new EventEmitter<PromptOptionSingle>();
   @Output() selectTemperatureValue = new EventEmitter<number>();
 
-  voices: string[] = ['professor', 'student', 'none']
-  instructions: string[] = ['no logic gaps', 'u', 'm', 'p', 'none']
-  guardrails: string[] = ['give answer', "don't give answer", 'none']
-  summarizes: string[] = ['summarize', "don't summarize", 'none']
-  COTs: string[] = ['step by step', 'explain reasoning', 'none']
-  extractors: string[] = ['likert scale', 'binary', '1-5', '1-10', 'none']
-
-  clickedVoice(voice: string): void {
+  clickedVoice(voice: PromptOptionSingle): void {
     this.selectPromptVoice.emit(voice);
   }
 
-  clickedInstruction(instruction: string) {
+  clickedInstruction(instruction: PromptOptionSingle) {
     this.selectPromptInstruction.emit(instruction);
   }
   
-  clickedGuardrail(guardrail: string) {
+  clickedGuardrail(guardrail: PromptOptionSingle) {
     this.selectPromptGuardrail.emit(guardrail);
   }
   
-  clickedSummarize(summarize: string) {
+  clickedSummarize(summarize: PromptOptionSingle) {
     this.selectPromptSummarize.emit(summarize);
   }
 
-  clickedCOT(COT: string) {
+  clickedCOT(COT: PromptOptionSingle) {
     this.selectPromptCOT.emit(COT);
   }
 
-  clickedExtractor(extractor: string) {
+  clickedExtractor(extractor: PromptOptionSingle) {
     this.selectPromptExtractor.emit(extractor);
   }
   

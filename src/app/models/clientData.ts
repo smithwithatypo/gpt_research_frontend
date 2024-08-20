@@ -5,12 +5,12 @@ export class ClientData {
     }
     promptData: {
         temperature: number;
-        voice: string;
-        instruction: string;
-        guardrail: string;
-        summarize: string;
-        COT: string;
-        extractor: string;
+        voice: any;
+        instruction: any;
+        guardrail: any;
+        summarize: any;
+        COT: any;
+        extractor: any;
         // difficulty: number;    // deprecated
         // model: string;    // deprecated
     };
@@ -27,12 +27,12 @@ export class ClientData {
         },
         promptData: {
             temperature: number;
-            voice: string;
-            instruction: string;
-            guardrail: string;
-            summarize: string;
-            COT: string;
-            extractor: string;
+            voice: any;
+            instruction: any;
+            guardrail: any;
+            summarize: any;
+            COT: any;
+            extractor: any;
             // difficulty: number;    // deprecated
             // model: string;    // deprecated
         },

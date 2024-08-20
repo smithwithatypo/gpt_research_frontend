@@ -21,14 +21,14 @@
             [promptGuardrail]="clientData.promptData.guardrail"
             [promptSummarize]="clientData.promptData.summarize"
             [promptCOT]="clientData.promptData.COT"
-            [promptExtractor]="clientData.promptData.extractor"            
+            [promptExtractor]="clientData.promptData.extractor"
             >
-
             </app-prompt-display>
         </div>
 
         <div class="promptSelector">
             <app-prompt-selector
+                [promptOptions]="promptOptions"
                 [promptVoice]="clientData.promptData.voice"
                 [promptInstruction]="clientData.promptData.instruction"
                 [promptGuardrail]="clientData.promptData.guardrail"
@@ -43,6 +43,7 @@
                 (selectPromptExtractor)="setPromptExtractor($event)"
                 (selectTemperatureValue)="setTemperatureValue($event)"
             >
+            <!-- (initialized)="getPromptOptions()"    // deprecated, goes above -->
             </app-prompt-selector>
             <br>
             <br>

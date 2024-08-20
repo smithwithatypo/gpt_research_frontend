@@ -2,6 +2,9 @@ import { Component, NgZone, ChangeDetectorRef, OnInit } from '@angular/core';
 import { BackendService } from '../../../services/backend.service';
 import { BrowserCheckService } from '../../../services/browser-check.service';
 import { ClientData } from 'src/app/models/clientData';
+import { PromptOptions } from 'src/app/models/promptOptions';
+import { PromptOptionSingle } from 'src/app/models/promptOptionSingle';
+
 
 
 @Component({
@@ -16,6 +19,7 @@ export class MainContainerComponent implements OnInit{
 
   ngOnInit(): void {
     this.browserCheckService.checkForSafari();
+    this.getPromptOptions()
   }
 
   clientData: ClientData = new ClientData({
@@ -23,12 +27,30 @@ export class MainContainerComponent implements OnInit{
     datetime: new Date()
   }, {
     temperature: 0,
-    voice: 'professor',
-    instruction: 'no logic gaps',
-    guardrail: "don't give answer",
-    summarize: "summarize",
-    COT: "none",
-    extractor: "none"
+    voice: {
+      summary: "professor", 
+      text: "be a university level computer science professor"
+    },
+    instruction: {
+      summary: "no logic gaps", 
+      text: "my response needs to solve the problem with no logic gaps"
+    },
+    guardrail: {
+      summary: "don't give answer", 
+      text: "don't give me the solution. guide me to the answer"
+    },
+    summarize: {
+      summary: "summarize", 
+      text: "summarize your response"
+    },
+    COT: {
+      summary: "none", 
+      text: ""
+    },
+    extractor: {
+      summary: "none", 
+      text: ""
+    },
   }, {
     code: '',
     transcript: '',
@@ -40,8 +62,22 @@ export class MainContainerComponent implements OnInit{
   isLoadingAI: boolean = false;
   isLoadingAudio: boolean = false;
   generatedText: string = '';
-  
+  promptOptions: PromptOptions = {};
 
+  getPromptOptions(): void {
+    this.backendService.getPromptOptions().subscribe({
+      next: (response) => {
+        this.promptOptions.voice = response.data.voice,
+        this.promptOptions.instruction = response.data.instruction,
+        this.promptOptions.guardrail = response.data.guardrail,
+        this.promptOptions.summarize = response.data.summarize,
+        this.promptOptions.COT = response.data.COT,
+        this.promptOptions.extractor = response.data.extractor
+      },
+      error: (e) => console.error(`Error getting prompt options: ${e}`),
+      complete: () => console.info('received prompt options')
+    });
+  }
 
   getProblemSummaries() {
     this.backendService.getProblemSummaries().subscribe({
@@ -85,27 +121,27 @@ export class MainContainerComponent implements OnInit{
     });
   }
 
-  setPromptVoice(voice: string) {
+  setPromptVoice(voice: PromptOptionSingle) {
     this.clientData.promptData.voice = voice;
   }
 
-  setPromptInstruction(instruction: string) {
+  setPromptInstruction(instruction: PromptOptionSingle) {
     this.clientData.promptData.instruction = instruction;
   }
 
-  setPromptGuardrail(guardrail: string) {
+  setPromptGuardrail(guardrail: PromptOptionSingle) {
     this.clientData.promptData.guardrail = guardrail;
   }
 
-  setPromptSummarize(summarize: string) {
+  setPromptSummarize(summarize: PromptOptionSingle) {
     this.clientData.promptData.summarize = summarize;
   }
 
-  setPromptCOT(COT: string) {
+  setPromptCOT(COT: PromptOptionSingle) {
     this.clientData.promptData.COT = COT;
   }
 
-  setPromptExtractor(extractor: string) {
+  setPromptExtractor(extractor: PromptOptionSingle) {
     this.clientData.promptData.extractor = extractor;
   }
   
