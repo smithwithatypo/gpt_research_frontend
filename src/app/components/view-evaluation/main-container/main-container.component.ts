@@ -150,8 +150,8 @@ export class MainContainerComponent implements OnInit{
   }
 
   generateTextPost() {
-    this.isLoadingAI = true;
     this.clientData.metaData.datetime = new Date();
+    this.isLoadingAI = true;
     this.backendService.generateTextPost(this.clientData).subscribe({
       next: (response) => {
         this.generatedText = response.data;
@@ -161,7 +161,11 @@ export class MainContainerComponent implements OnInit{
         console.error(`Error generating text: ${e}`);
         this.isLoadingAI = false;
       },
-      complete: () => console.info('text generated successfully')
+      complete: () => {
+        console.info('text generated successfully'),
+        this.isLoadingAI = false;
+      }
+      
     });
   }
 }

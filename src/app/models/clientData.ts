@@ -11,8 +11,6 @@ export class ClientData {
         summarize: any;
         COT: any;
         extractor: any;
-        // difficulty: number;    // deprecated
-        // model: string;    // deprecated
     };
     studentData: {
         code: string;
@@ -33,8 +31,6 @@ export class ClientData {
             summarize: any;
             COT: any;
             extractor: any;
-            // difficulty: number;    // deprecated
-            // model: string;    // deprecated
         },
         studentData: {
             code: string;

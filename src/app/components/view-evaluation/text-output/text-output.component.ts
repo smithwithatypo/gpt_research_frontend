@@ -5,8 +5,11 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   templateUrl: './text-output.component.html',
   styleUrls: ['./text-output.component.sass']
 })
+
 export class TextOutputComponent {
   @Input() generatedText: string = '';
+  @Input() isLoading: any;
+
   @Output() requestGenerateText = new EventEmitter<any>();
 
   constructor() { }
@@ -14,6 +17,5 @@ export class TextOutputComponent {
   onGenerateText() {
     this.requestGenerateText.emit();
   }
-
 
 }

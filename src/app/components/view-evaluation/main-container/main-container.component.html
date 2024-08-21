@@ -67,8 +67,11 @@
         </div>
 
         <div class="generate-text">
-            <app-text-output [generatedText]="generatedText" (requestGenerateText)="generateTextPost()"></app-text-output>
-            <div *ngIf="isLoadingAI"> <mat-spinner></mat-spinner> </div>
+            <app-text-output 
+              [isLoading]="isLoadingAI" 
+              [generatedText]="generatedText" 
+              (requestGenerateText)="generateTextPost()">
+            </app-text-output>
         </div>
     </div>
 </div>
