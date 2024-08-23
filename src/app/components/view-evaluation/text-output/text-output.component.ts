@@ -12,7 +12,8 @@ export class TextOutputComponent {
 
   @Output() requestGenerateText = new EventEmitter<any>();
 
-  constructor() { }
+  constructor() {
+  }
 
   onGenerateText() {
     this.requestGenerateText.emit();

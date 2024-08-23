@@ -9,6 +9,9 @@ import { AppRoutingModule } from './app-routing.module';
 // Firebase
 // import { AngularFireModule } from '@angular/fire';
 
+// Markdown
+import { MarkdownModule } from 'ngx-markdown';
+
 // Forms
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
@@ -26,8 +29,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatRadioModule } from '@angular/material/radio';
-
-
 
 // Http
 import { HttpClientModule } from '@angular/common/http';
@@ -85,7 +86,8 @@ import { PromptDisplayComponent } from './components/view-evaluation/prompt-disp
     MatProgressSpinnerModule,
     MatTooltipModule,
     MatChipsModule,
-    MatRadioModule
+    MatRadioModule,
+    MarkdownModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
