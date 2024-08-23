@@ -34,7 +34,8 @@ export class AudioInputComponent {
     this.recording = false;
     this.mediaRecorder.stop();
     this.mediaRecorder.onstop = () => {
-      const audioBlob = new Blob(this.audioChunks, { type: 'audio/webm' });
+      // const audioBlob = new Blob(this.audioChunks, { type: 'audio/webm' });
+      const audioBlob = new Blob(this.audioChunks, { type: 'audio/wav' });
       this.audioRecorded.emit(audioBlob);
     };
   }
