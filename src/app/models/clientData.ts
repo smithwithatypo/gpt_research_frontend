@@ -16,6 +16,7 @@ export class ClientData {
         code: string;
         transcript: string;
         problemID: number;
+        netID: string;
     };
 
     constructor(
@@ -36,6 +37,7 @@ export class ClientData {
             code: string;
             transcript: string;
             problemID: number;
+            netID: string;
         }
     ) {
         this.metaData = metaData;

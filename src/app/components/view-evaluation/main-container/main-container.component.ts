@@ -54,7 +54,8 @@ export class MainContainerComponent implements OnInit{
   }, {
     code: '',
     transcript: '',
-    problemID: 0
+    problemID: 0,
+    netID: ''
   });
   
   problemSummaries: any;
@@ -98,6 +99,10 @@ export class MainContainerComponent implements OnInit{
 
   processText(text: string) {
       this.clientData.studentData.code = text;
+  }
+
+  processNetID(text: string) {
+    this.clientData.studentData.netID = text;
   }
 
   transcribeAudio(audioBlob: Blob) {

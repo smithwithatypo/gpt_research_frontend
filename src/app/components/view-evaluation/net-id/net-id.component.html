@@ -1,0 +1,5 @@
+<mat-form-field>
+    <mat-label>netID</mat-label>
+    <input matInput [(ngModel)]="netID" (blur)="saveText()" (focus)="clearAutosave()">
+    <mat-hint *ngIf="saved" align="end">autosaved <mat-icon>save</mat-icon></mat-hint>
+</mat-form-field>

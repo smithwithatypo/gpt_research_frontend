@@ -66,6 +66,10 @@
             <app-audio-output [text]="clientData.studentData.transcript"></app-audio-output>
         </div>
 
+        <div class="netID">
+            <app-net-id (textSave)="processNetID($event)"></app-net-id>
+        </div>
+
         <div class="generate-text">
             <app-text-output 
               [isLoading]="isLoadingAI" 

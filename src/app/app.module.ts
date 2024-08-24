@@ -46,6 +46,7 @@ import { ViewLoginComponent } from './components/view-login/view-login.component
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PromptSelectorComponent } from './components/view-evaluation/prompt-selector/prompt-selector.component';
 import { PromptDisplayComponent } from './components/view-evaluation/prompt-display/prompt-display.component';
+import { NetIDComponent } from './components/view-evaluation/net-id/net-id.component';
 
 
 
@@ -64,7 +65,8 @@ import { PromptDisplayComponent } from './components/view-evaluation/prompt-disp
     ViewLoginComponent,
     NavbarComponent,
     PromptSelectorComponent,
-    PromptDisplayComponent
+    PromptDisplayComponent,
+    NetIDComponent
   ],
   imports: [
     BrowserModule,
