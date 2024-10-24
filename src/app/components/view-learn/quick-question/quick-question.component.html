@@ -1,0 +1,34 @@
+
+
+<form [formGroup]="gpt_form" (ngSubmit)="onAIClick('sentence')">
+    <mat-form-field appearance="fill">
+        <mat-label>Class / Topic</mat-label>
+        <input matInput type="text" formControlName="topic">
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+        <mat-label>Question</mat-label>
+        <input matInput type="text" formControlName="question">
+    </mat-form-field>
+    <button (click)="onClearQuestion()" mat-icon-button type="button">
+        <mat-icon>clear</mat-icon>
+    </button>
+
+    <br>
+    <br>
+
+    <p class="mat-headline-5">Explain this to me</p>
+    <button type="submit" mat-raised-button color="primary">sentence</button>
+    <button (click)="onAIClick('paragraph')" type="button" mat-stroked-button color="primary">paragraph</button>
+    <br>
+    <button (click)="onAIClick('analogyMe')" type="button" mat-stroked-button color="accent">analogy</button>
+    <button (click)="onAIClick('analogyKid')" type="button" mat-stroked-button color="accent">analogy for a kid</button>
+    <button (click)="onSearchClick()" type="button" mat-button color="basic">Google it <mat-icon>open_in_new</mat-icon> </button>
+</form>
+
+
+<div class="mat-body-1 output">
+    <p>{{response_data}}</p>
+</div>
+
+<footer></footer>

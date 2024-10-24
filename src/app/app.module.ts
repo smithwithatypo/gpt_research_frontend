@@ -35,7 +35,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 // Components
 import { TextInputComponent } from './components/view-evaluation/text-input/text-input.component';
-import { MainContainerComponent } from './components/view-evaluation/main-container/main-container.component';
+import { ViewEvaluationContainerComponent } from './components/view-evaluation/view-evaluation-container/view-evaluation-container.component';
 import { AudioInputComponent } from './components/view-evaluation/audio-input/audio-input.component';
 import { AudioOutputComponent } from './components/view-evaluation/audio-output/audio-output.component';
 import { TextOutputComponent } from './components/view-evaluation/text-output/text-output.component';
@@ -47,6 +47,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { PromptSelectorComponent } from './components/view-evaluation/prompt-selector/prompt-selector.component';
 import { PromptDisplayComponent } from './components/view-evaluation/prompt-display/prompt-display.component';
 import { NetIDComponent } from './components/view-evaluation/net-id/net-id.component';
+import { ViewLearnContainerComponent } from './components/view-learn/view-learn-container/view-learn-container.component';
+import { QuickQuestionComponent } from './components/view-learn/quick-question/quick-question.component';
 
 
 
@@ -55,7 +57,7 @@ import { NetIDComponent } from './components/view-evaluation/net-id/net-id.compo
   declarations: [
     AppComponent,
     TextInputComponent,
-    MainContainerComponent,
+    ViewEvaluationContainerComponent,
     AudioInputComponent,
     AudioOutputComponent,
     TextOutputComponent,
@@ -66,7 +68,9 @@ import { NetIDComponent } from './components/view-evaluation/net-id/net-id.compo
     NavbarComponent,
     PromptSelectorComponent,
     PromptDisplayComponent,
-    NetIDComponent
+    NetIDComponent,
+    ViewLearnContainerComponent,
+    QuickQuestionComponent
   ],
   imports: [
     BrowserModule,

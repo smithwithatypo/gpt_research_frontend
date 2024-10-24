@@ -8,12 +8,12 @@ import { PromptOptionSingle } from 'src/app/models/promptOptionSingle';
 
 
 @Component({
-  selector: 'app-main-container',
-  templateUrl: './main-container.component.html',
-  styleUrls: ['./main-container.component.sass']
+  selector: 'app-view-evaluation-container',
+  templateUrl: './view-evaluation-container.component.html',
+  styleUrls: ['./view-evaluation-container.component.sass']
 })
 
-export class MainContainerComponent implements OnInit{
+export class ViewEvaluationContainerComponent implements OnInit{
 
   constructor (private backendService: BackendService, private zone: NgZone, private changeDetectorRef: ChangeDetectorRef, private browserCheckService: BrowserCheckService) { }
 
