@@ -1,8 +1,64 @@
-<div>
+<!-- <div>
     <button *ngIf="!recording" mat-raised-button color="accent" (click)="startRecording()">
         Start Recording <mat-icon>mic</mat-icon>
     </button>
     <button *ngIf="recording" mat-raised-button color="warn" (click)="stopRecording()">
         Stop Recording <mat-icon>stop_circle</mat-icon>
     </button>
+</div> -->
+
+<div>
+  <!-- record and pause button -->
+  <button
+    *ngIf="!recording"
+    mat-raised-button
+    color="accent"
+    (click)="startRecording()"
+  >
+    Start Recording <mat-icon>mic</mat-icon>
+  </button>
+  <button
+    *ngIf="recording && !paused"
+    mat-raised-button
+    color="warn"
+    (click)="startRecording()"
+  >
+    Pause Recording <mat-icon>pause_circle</mat-icon>
+  </button>
+  <button
+    *ngIf="recording && paused"
+    mat-raised-button
+    color="accent"
+    (click)="startRecording()"
+  >
+    Resume Recording <mat-icon>mic</mat-icon>
+  </button>
+
+  <!-- transcribe button -->
+  <button
+    *ngIf="recording && !paused"
+    mat-raised-button
+    disabled
+    color="primary"
+    (click)="stopAndTranscribeRecording()"
+  >
+    Transcribe <mat-icon>send</mat-icon>
+  </button>
+  <button
+    *ngIf="!recording && !paused"
+    mat-raised-button
+    disabled
+    color="primary"
+    (click)="stopAndTranscribeRecording()"
+  >
+    Transcribe <mat-icon>send</mat-icon>
+  </button>
+  <button
+    *ngIf="recording && paused"
+    mat-raised-button
+    color="primary"
+    (click)="stopAndTranscribeRecording()"
+  >
+    Transcribe <mat-icon>send</mat-icon>
+  </button>
 </div>
