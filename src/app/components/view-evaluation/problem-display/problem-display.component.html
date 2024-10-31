@@ -1,18 +1,40 @@
-<mat-card>
+<mat-sidenav-container class="view-problems">
+  <mat-sidenav #sidenav mode="over" (blur)="sidenav.close()">
+    <button mat-icon-button (click)="sidenav.close()">
+      <mat-icon>clear</mat-icon>
+    </button>
+    <app-problem-selector
+      [problemSummaries]="problemSummaries"
+      (getProblemSummaries)="getProblemSummaries()"
+      (getOneProblem)="getOneProblem($event)"
+    ></app-problem-selector>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          <div *ngIf="oneProblemData; else elseBlock">
+            {{ oneProblemData.summary }}
+          </div>
+          <ng-template #elseBlock>
+            <button mat-button color="accent" (click)="sidenav.open()">
+              Select a problem
+            </button></ng-template
+          >
+        </mat-card-title>
+      </mat-card-header>
 
-  <mat-card-header> 
-    <mat-card-title>
-      <div *ngIf="oneProblemData; else elseBlock">{{oneProblemData.summary}}</div>
-      <ng-template #elseBlock><p id="gray">Please select a problem below</p></ng-template>
-    </mat-card-title>
-  </mat-card-header>
-
-  <mat-card-content>
-    <div *ngIf="oneProblemData">
-      <p>{{oneProblemData.problem}}</p>
-      <p>{{oneProblemData.example1}}</p>
-      <p>{{oneProblemData.example2}}</p>
-      <p>{{oneProblemData.example3}}</p>
-    </div>
-  </mat-card-content>
-</mat-card>
+      <mat-card-content>
+        <div *ngIf="oneProblemData">
+          <p>{{ oneProblemData.problem }}</p>
+          <p>{{ oneProblemData.example1 }}</p>
+          <p>{{ oneProblemData.example2 }}</p>
+          <p>{{ oneProblemData.example3 }}</p>
+          <button mat-button color="accent" (click)="sidenav.open()">
+            Select a new problem
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </mat-sidenav-content>
+</mat-sidenav-container>
