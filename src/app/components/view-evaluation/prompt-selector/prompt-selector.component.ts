@@ -37,6 +37,8 @@ export class PromptSelectorComponent {
   @Output() selectPromptExtractor = new EventEmitter<PromptOptionSingle>();
   @Output() selectTemperatureValue = new EventEmitter<number>();
 
+  temperatureTooltip = 'randomness from low --> high';
+
   clickedVoice(voice: PromptOptionSingle): void {
     this.selectPromptVoice.emit(voice);
   }

@@ -16,5 +16,4 @@ export class PromptDisplayComponent {
   @Input() promptExtractor: any;
 
   title: string = "System Prompt"
-  // tooltip: string = "{voice} {instruction} {guardrail} {summarize} {CoT} {extractor}"
 }

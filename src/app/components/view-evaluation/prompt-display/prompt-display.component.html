@@ -3,9 +3,7 @@
 </div>
 
 <div class="prompt-text">
-  <p *ngIf="promptVoice.text">
-    <strong>Voice:</strong> {{ promptVoice.text }}
-  </p>
+  <p *ngIf="promptVoice.text"><strong>Voice:</strong> {{ promptVoice.text }}</p>
   <p *ngIf="promptInstruction.text">
     <strong>Instruction:</strong> {{ promptInstruction.text }}
   </p>
@@ -15,9 +13,7 @@
   <p *ngIf="promptSummarize.text">
     <strong>Summarize:</strong> {{ promptSummarize.text }}
   </p>
-  <p *ngIf="promptCOT.text">
-    <strong>CoT:</strong> {{ promptCOT.text }}
-  </p>
+  <p *ngIf="promptCOT.text"><strong>CoT:</strong> {{ promptCOT.text }}</p>
   <p *ngIf="promptExtractor.text">
     <strong>Extractor:</strong> {{ promptExtractor.text }}
   </p>
