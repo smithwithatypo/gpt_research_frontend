@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { PromptOptionSingle } from 'src/app/models/promptOptionSingle';
 
 @Component({
   selector: 'app-prompt-display',
@@ -17,5 +16,5 @@ export class PromptDisplayComponent {
   @Input() promptExtractor: any;
 
   title: string = "System Prompt"
-  tooltip: string = "{voice} {instruction} {guardrail} {summarize} {CoT} {extractor}"
+  // tooltip: string = "{voice} {instruction} {guardrail} {summarize} {CoT} {extractor}"
 }

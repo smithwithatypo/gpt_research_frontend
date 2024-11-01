@@ -1,4 +1,4 @@
-import { Component, Output, Input, EventEmitter, OnInit } from '@angular/core';
+import { Component, Output, Input, EventEmitter } from '@angular/core';
 import { PromptOptionSingle } from 'src/app/models/promptOptionSingle';
 
 @Component({
@@ -7,13 +7,19 @@ import { PromptOptionSingle } from 'src/app/models/promptOptionSingle';
   styleUrls: ['./prompt-selector.component.sass']
 })
 
-export class PromptSelectorComponent implements OnInit {
+export class PromptSelectorComponent {
 
   constructor () { };
 
-  ngOnInit(): void {
-    // this.initialized.emit();
-  }
+  // @Output() toggleTextInputEvent = new EventEmitter<boolean>();
+
+  // showTextInput = false;
+  // saved = false;
+  // userPrompt: string = '';
+
+  // saveText() {
+  //   this.saved = true;
+  // }
 
   @Input() promptOptions: any;
   @Input() promptVoice: any;
@@ -23,7 +29,6 @@ export class PromptSelectorComponent implements OnInit {
   @Input() promptCOT: any;
   @Input() promptExtractor: any;
 
-  // @Output() initialized = new EventEmitter<void>();
   @Output() selectPromptVoice = new EventEmitter<PromptOptionSingle>();
   @Output() selectPromptInstruction = new EventEmitter<PromptOptionSingle>();
   @Output() selectPromptGuardrail = new EventEmitter<PromptOptionSingle>();

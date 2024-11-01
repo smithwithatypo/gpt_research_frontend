@@ -84,23 +84,6 @@ export class MainContainerComponent implements OnInit{
     this.clientData.studentData.problemID = problemID;
   }
 
-  // getProblemSummaries() {
-  //   this.backendService.getProblemSummaries().subscribe({
-  //     next: (response) => this.problemSummaries = response.data,
-  //     error: (e) => console.error(`Error getting problem summaries: ${e}`),
-  //     complete: () => console.info('loaded problem summaries')
-  //   });
-  // }
-
-  // getOneProblem(problemID: number) {
-  //   this.clientData.studentData.problemID = problemID;
-  //   this.backendService.getOneProblem(problemID).subscribe({
-  //     next: (response) => this.oneProblemData = response.data,
-  //     error: (e) => console.error(`Error getting problem: ${e}`),
-  //     complete: () => console.info('loaded problem')
-  //   });
-  // }
-
   processText(text: string) {
       this.clientData.studentData.code = text;
   }

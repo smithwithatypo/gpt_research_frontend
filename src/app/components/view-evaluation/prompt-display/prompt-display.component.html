@@ -1,8 +1,25 @@
 <div class="title">
-    <h4 > {{ title }} </h4>
-    <mat-icon fontIcon="info" matTooltip="{{ tooltip }}"></mat-icon>
+  <h4>{{ title }}</h4>
+  <!-- <mat-icon fontIcon="info" matTooltip="{{ tooltip }}"></mat-icon> -->
 </div>
 
 <div class="prompt-text">
-    <p> {{ promptVoice.text }}. {{ promptInstruction.text }}. {{ promptGuardrail.text }}. {{ promptSummarize.text }}. {{ promptCOT.text }}. {{ promptExtractor.text }}. </p>
+  <p *ngIf="promptVoice.text">
+    <strong>Voice:</strong> {{ promptVoice.text }}
+  </p>
+  <p *ngIf="promptInstruction.text">
+    <strong>Instruction:</strong> {{ promptInstruction.text }}
+  </p>
+  <p *ngIf="promptGuardrail.text">
+    <strong>Guardrail:</strong> {{ promptGuardrail.text }}
+  </p>
+  <p *ngIf="promptSummarize.text">
+    <strong>Summarize:</strong> {{ promptSummarize.text }}
+  </p>
+  <p *ngIf="promptCOT.text">
+    <strong>CoT:</strong> {{ promptCOT.text }}
+  </p>
+  <p *ngIf="promptExtractor.text">
+    <strong>Extractor:</strong> {{ promptExtractor.text }}
+  </p>
 </div>
