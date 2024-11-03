@@ -1,6 +1,6 @@
 <div class="text-column">
     <mat-form-field>
-        <mat-label>Type your solution here</mat-label>
+        <mat-label>Type your pseudocode here</mat-label>
         <textarea matInput [(ngModel)]="user_code" (blur)="saveText()" (focus)="clearAutosave()"></textarea>
         <mat-hint *ngIf="saved" align="end">autosaved <mat-icon>save</mat-icon></mat-hint>
         

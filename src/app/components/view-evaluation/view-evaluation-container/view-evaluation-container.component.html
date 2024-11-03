@@ -1,85 +1,77 @@
 <app-navbar></app-navbar>
 
 <div class="row">
-    <div class="column">
-
-        <mat-sidenav-container class="view-problems">
-            <mat-sidenav #sidenav mode="over" (blur)="sidenav.close()"> 
-                <button mat-icon-button (click)="sidenav.close()"><mat-icon>clear</mat-icon></button>
-                <app-problem-selector [problemSummaries]="problemSummaries" (getProblemSummaries)="getProblemSummaries()" (getOneProblem)="getOneProblem($event)"></app-problem-selector>
-            </mat-sidenav>
-            <mat-sidenav-content>
-                <app-problem-display [oneProblemData]="oneProblemData"></app-problem-display>
-                <p><button mat-button color="accent" (click)="sidenav.open()">Show Problems</button></p>
-            </mat-sidenav-content>
-        </mat-sidenav-container>
-
-        <div class="prompt-display">
-            <app-prompt-display
-            [promptVoice]="clientData.promptData.voice"
-            [promptInstruction]="clientData.promptData.instruction"
-            [promptGuardrail]="clientData.promptData.guardrail"
-            [promptSummarize]="clientData.promptData.summarize"
-            [promptCOT]="clientData.promptData.COT"
-            [promptExtractor]="clientData.promptData.extractor"
-            >
-            </app-prompt-display>
-        </div>
-
-        <div class="promptSelector">
-            <app-prompt-selector
-                [promptOptions]="promptOptions"
-                [promptVoice]="clientData.promptData.voice"
-                [promptInstruction]="clientData.promptData.instruction"
-                [promptGuardrail]="clientData.promptData.guardrail"
-                [promptSummarize]="clientData.promptData.summarize"
-                [promptCOT]="clientData.promptData.COT"
-                [promptExtractor]="clientData.promptData.extractor"
-                (selectPromptVoice)="setPromptVoice($event)"
-                (selectPromptInstruction)="setPromptInstruction($event)"
-                (selectPromptGuardrail)="setPromptGuardrail($event)"
-                (selectPromptSummarize)="setPromptSummarize($event)"
-                (selectPromptCOT)="setPromptCOT($event)"
-                (selectPromptExtractor)="setPromptExtractor($event)"
-                (selectTemperatureValue)="setTemperatureValue($event)"
-            >
-            <!-- (initialized)="getPromptOptions()"    // deprecated, goes above -->
-            </app-prompt-selector>
-            <br>
-            <br>
-            <br>
-        </div>
+  <div class="column">
+    <div class="problem-display">
+      <app-problem-display
+        [oneProblemData]="oneProblemData"
+        [problemSummaries]="problemSummaries"
+        (problemIDSelected)="updateClientData($event)"
+      ></app-problem-display>
     </div>
-    
 
-    <div class="column">
-        <div class="text-input">
-            <app-text-input (textSubmit)="processText($event)"></app-text-input>
-        </div>
-        
-        <div class="audio-buttons">
-            <app-audio-input (audioRecorded)="transcribeAudio($event)"></app-audio-input>
-        </div>
-
-        <div class="display-transcription">
-            <div *ngIf="isLoadingAudio"> <mat-spinner></mat-spinner> </div>
-            <app-audio-output [text]="clientData.studentData.transcript"></app-audio-output>
-        </div>
-
-        <div class="netID">
-            <app-net-id (textSave)="processNetID($event)"></app-net-id>
-        </div>
-
-        <div class="generate-text">
-            <app-text-output 
-              [isLoading]="isLoadingAI" 
-              [generatedText]="generatedText" 
-              (requestGenerateText)="generateTextPost()">
-            </app-text-output>
-        </div>
+    <div class="prompt-display">
+      <app-prompt-display
+        [promptVoice]="clientData.promptData.voice"
+        [promptInstruction]="clientData.promptData.instruction"
+        [promptGuardrail]="clientData.promptData.guardrail"
+        [promptSummarize]="clientData.promptData.summarize"
+        [promptCOT]="clientData.promptData.COT"
+        [promptExtractor]="clientData.promptData.extractor"
+      >
+      </app-prompt-display>
     </div>
+
+    <div class="promptSelector">
+      <app-prompt-selector
+        [promptOptions]="promptOptions"
+        [promptVoice]="clientData.promptData.voice"
+        [promptInstruction]="clientData.promptData.instruction"
+        [promptGuardrail]="clientData.promptData.guardrail"
+        [promptSummarize]="clientData.promptData.summarize"
+        [promptCOT]="clientData.promptData.COT"
+        [promptExtractor]="clientData.promptData.extractor"
+        (selectPromptVoice)="setPromptVoice($event)"
+        (selectPromptInstruction)="setPromptInstruction($event)"
+        (selectPromptGuardrail)="setPromptGuardrail($event)"
+        (selectPromptSummarize)="setPromptSummarize($event)"
+        (selectPromptCOT)="setPromptCOT($event)"
+        (selectPromptExtractor)="setPromptExtractor($event)"
+        (selectTemperatureValue)="setTemperatureValue($event)"
+      >
+      </app-prompt-selector>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="text-input">
+      <app-text-input (textSubmit)="processText($event)"></app-text-input>
+    </div>
+
+    <div class="audio-buttons">
+      <app-audio-input
+        (audioRecorded)="transcribeAudio($event)"
+      ></app-audio-input>
+    </div>
+
+    <div class="display-transcription">
+      <div *ngIf="isLoadingAudio"><mat-spinner></mat-spinner></div>
+      <app-audio-output
+        [text]="clientData.studentData.transcript"
+      ></app-audio-output>
+    </div>
+
+    <div class="netID">
+      <app-net-id (textSave)="processNetID($event)"></app-net-id>
+    </div>
+
+    <div class="generate-text">
+      <app-text-output
+        [isLoading]="isLoadingAI"
+        [generatedText]="generatedText"
+        (requestGenerateText)="generateTextPost()"
+      >
+      </app-text-output>
+    </div>
+  </div>
 </div>
-    
-
-
-

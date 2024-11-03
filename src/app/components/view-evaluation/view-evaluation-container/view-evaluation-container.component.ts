@@ -80,21 +80,8 @@ export class ViewEvaluationContainerComponent implements OnInit{
     });
   }
 
-  getProblemSummaries() {
-    this.backendService.getProblemSummaries().subscribe({
-      next: (response) => this.problemSummaries = response.data,
-      error: (e) => console.error(`Error getting problem summaries: ${e}`),
-      complete: () => console.info('loaded problem summaries')
-    });
-  }
-
-  getOneProblem(problemID: number) {
+  updateClientData(problemID: number) {
     this.clientData.studentData.problemID = problemID;
-    this.backendService.getOneProblem(problemID).subscribe({
-      next: (response) => this.oneProblemData = response.data,
-      error: (e) => console.error(`Error getting problem: ${e}`),
-      complete: () => console.info('loaded problem')
-    });
   }
 
   processText(text: string) {

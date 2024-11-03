@@ -1,59 +1,109 @@
 <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        <mat-icon fontIcon="tune"></mat-icon>  <span>Prompt Settings</span> 
-      </mat-panel-title>
-    </mat-expansion-panel-header>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <mat-icon fontIcon="tune"></mat-icon> <span>Prompt Settings</span>
+    </mat-panel-title>
+  </mat-expansion-panel-header>
 
+  <!-- <p>
+    <mat-slide-toggle labelPosition="before" [(ngModel)]="showTextInput"
+      >Write your own prompt</mat-slide-toggle
+    >
+  </p> -->
+  <!-- <div *ngIf="showTextInput">
+    <mat-form-field>
+      <mat-label>Custom Prompt</mat-label>
+      <textarea
+        matInput
+        [(ngModel)]="userPrompt"
+        (blur)="saveText()"
+      ></textarea>
+      <mat-hint *ngIf="saved" align="end"
+        >autosaved <mat-icon>save</mat-icon></mat-hint
+      >
+    </mat-form-field>
+  </div> -->
+
+  <!-- <div *ngIf="!showTextInput"> -->
+  <div>
     <mat-label>Voice</mat-label>
     <mat-chip-listbox>
-      <mat-chip-option *ngFor="let voice of promptOptions.voice" [selected]="promptVoice.summary === voice.summary" (click)="clickedVoice(voice)">
+      <mat-chip-option
+        *ngFor="let voice of promptOptions.voice"
+        [selected]="promptVoice.summary === voice.summary"
+        (click)="clickedVoice(voice)"
+      >
         {{ voice.summary }}
       </mat-chip-option>
     </mat-chip-listbox>
 
     <mat-label>Instruction</mat-label>
     <mat-chip-listbox>
-      <mat-chip-option *ngFor="let instruction of promptOptions.instruction" [selected]="promptInstruction.summary === instruction.summary" (click)="clickedInstruction(instruction)">
+      <mat-chip-option
+        *ngFor="let instruction of promptOptions.instruction"
+        [selected]="promptInstruction.summary === instruction.summary"
+        (click)="clickedInstruction(instruction)"
+      >
         {{ instruction.summary }}
       </mat-chip-option>
     </mat-chip-listbox>
 
     <mat-label>Guardrail</mat-label>
     <mat-chip-listbox>
-      <mat-chip-option *ngFor="let guardrail of promptOptions.guardrail" [selected]="promptGuardrail.summary === guardrail.summary" (click)="clickedGuardrail(guardrail)">
+      <mat-chip-option
+        *ngFor="let guardrail of promptOptions.guardrail"
+        [selected]="promptGuardrail.summary === guardrail.summary"
+        (click)="clickedGuardrail(guardrail)"
+      >
         {{ guardrail.summary }}
       </mat-chip-option>
     </mat-chip-listbox>
 
     <mat-label>Summarize</mat-label>
     <mat-chip-listbox>
-      <mat-chip-option *ngFor="let summarize of promptOptions.summarize" [selected]="promptSummarize.summary === summarize.summary" (click)="clickedSummarize(summarize)">
+      <mat-chip-option
+        *ngFor="let summarize of promptOptions.summarize"
+        [selected]="promptSummarize.summary === summarize.summary"
+        (click)="clickedSummarize(summarize)"
+      >
         {{ summarize.summary }}
       </mat-chip-option>
     </mat-chip-listbox>
 
     <mat-label>Chain of Thought</mat-label>
     <mat-chip-listbox>
-      <mat-chip-option *ngFor="let cot of promptOptions.COT" [selected]="promptCOT.summary === cot.summary" (click)="clickedCOT(cot)">
+      <mat-chip-option
+        *ngFor="let cot of promptOptions.COT"
+        [selected]="promptCOT.summary === cot.summary"
+        (click)="clickedCOT(cot)"
+      >
         {{ cot.summary }}
       </mat-chip-option>
     </mat-chip-listbox>
 
     <mat-label>Extractor</mat-label>
     <mat-chip-listbox>
-      <mat-chip-option *ngFor="let extractor of promptOptions.extractor" [selected]="promptExtractor.summary === extractor.summary" (click)="clickedExtractor(extractor)">
+      <mat-chip-option
+        *ngFor="let extractor of promptOptions.extractor"
+        [selected]="promptExtractor.summary === extractor.summary"
+        (click)="clickedExtractor(extractor)"
+      >
         {{ extractor.summary }}
       </mat-chip-option>
     </mat-chip-listbox>
 
-    <br>
-    
-    <mat-label>Temperature</mat-label>
-    <mat-slider discrete color="accent" min="0" max="1" step="0.1" value=".1">
-      <input matSliderThumb #temperatureSlider (change)="clickedTemperature(temperatureSlider.value)">
-    </mat-slider>
-  
-    <br> 
-    
+    <br />
+  </div>
+
+  <mat-label>Temperature</mat-label>
+  <mat-tooltip [matTooltip]="temperatureTooltip"><mat-icon>info</mat-icon> </mat-tooltip>
+  <mat-slider discrete color="accent" min="0" max="1" step="0.1" value=".1">
+    <input
+      matSliderThumb
+      #temperatureSlider
+      (change)="clickedTemperature(temperatureSlider.value)"
+    />
+  </mat-slider>
+
+  <br />
 </mat-expansion-panel>
