@@ -13,7 +13,7 @@ export class ViewLoginComponent {
   constructor(private router: Router) {}
 
   login() {
-    const correctPasscode = 'oop'; 
+    const correctPasscode = 'oop';   // temporary
 
     if (this.passcode === correctPasscode) {
       this.router.navigate(['/evaluation']);

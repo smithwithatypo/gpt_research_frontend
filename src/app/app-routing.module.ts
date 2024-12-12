@@ -5,7 +5,8 @@ import { ViewLoginComponent } from './components/view-login/view-login.component
 import { ViewLearnContainerComponent } from './components/view-learn/view-learn-container/view-learn-container.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  // { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', redirectTo: '/evaluation', pathMatch: 'full' },
   { path: 'login', component: ViewLoginComponent },
   { path: 'evaluation', component: ViewEvaluationContainerComponent }  ,
   { path: 'learn', component: ViewLearnContainerComponent }
