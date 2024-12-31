@@ -14,6 +14,10 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
+## To Contribute
+
+See [Contributing.md](https://github.com/smithwithatypo/gpt_research_frontend/blob/main/CONTRIBUTING.md)
+
 
 ## Further help
 
